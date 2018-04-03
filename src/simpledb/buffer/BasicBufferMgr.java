@@ -2,10 +2,7 @@ package simpledb.buffer;
 
 import simpledb.file.*;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Manages the pinning and unpinning of buffers to blocks.
@@ -225,5 +222,10 @@ class BasicBufferMgr {
       }
 
       return null;
+   }
+
+   @Override
+   public String  toString() {
+      return Arrays.toString(bufferpool);
    }
 }

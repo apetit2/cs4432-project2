@@ -196,4 +196,9 @@ public class Buffer {
    void setFrameNumber(int frameNumber){
       this.frameNumber = frameNumber;
    }
+
+   @Override
+   public String toString () {
+      return "{Buffer ID: " + this.frameNumber + " Block: " + this.blk + " Pinned: " + isPinned() + "}";
+   }
 }
