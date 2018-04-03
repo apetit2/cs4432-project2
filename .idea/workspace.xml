@@ -4,7 +4,6 @@
     <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="BufferMgr.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BufferMgr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="127" column="34" lean-forward="false" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+            <state relative-caret-position="-238">
+              <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
               <folding>
                 <element signature="e#4260#4261#0" expanded="true" />
                 <element signature="e#4300#4301#0" expanded="true" />
@@ -29,14 +28,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Buffer.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Buffer.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="201" column="104" lean-forward="false" selection-start-line="201" selection-start-column="104" selection-end-line="201" selection-end-column="104" />
+            <state relative-caret-position="272">
+              <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
               <folding>
-                <element signature="e#2038#2039#0" expanded="true" />
-                <element signature="e#2084#2085#0" expanded="true" />
+                <element signature="e#2190#2191#0" expanded="true" />
+                <element signature="e#2236#2237#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -97,12 +96,12 @@
       <file leaf-file-name="BasicBufferMgr.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="227" column="28" lean-forward="true" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
+            <state relative-caret-position="-1419">
+              <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7373#7374#0" expanded="true" />
-                <element signature="e#7420#7421#0" expanded="true" />
+                <element signature="e#10558#10559#0" expanded="true" />
+                <element signature="e#10605#10606#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,9 +154,9 @@
         <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
         <option value="$PROJECT_DIR$/studentClient/simpledb/StudentMajorNoServer.java" />
         <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
-        <option value="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" />
         <option value="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
       </list>
     </option>
   </component>
@@ -447,12 +446,12 @@
       <workItem from="1522185387965" duration="6320000" />
       <workItem from="1522347826716" duration="4474000" />
       <workItem from="1522689692496" duration="16727000" />
-      <workItem from="1522783425039" duration="3923000" />
+      <workItem from="1522783425039" duration="5793000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54240000" />
+    <option name="totallyTimeSpent" value="56110000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="0" width="867" height="967" extended-state="0" />
@@ -553,8 +552,8 @@
         <state relative-caret-position="952">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
+            <element signature="e#2190#2191#0" expanded="true" />
+            <element signature="e#2236#2237#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -611,8 +610,8 @@
           <caret line="76" column="29" lean-forward="true" selection-start-line="76" selection-start-column="29" selection-end-line="76" selection-end-column="29" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7373#7374#0" expanded="true" />
-            <element signature="e#7420#7421#0" expanded="true" />
+            <element signature="e#10558#10559#0" expanded="true" />
+            <element signature="e#10605#10606#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -934,36 +933,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
+    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="201" column="104" lean-forward="false" selection-start-line="201" selection-start-column="104" selection-end-line="201" selection-end-column="104" />
+        <state relative-caret-position="-238">
+          <caret line="22" column="36" lean-forward="true" selection-start-line="22" selection-start-column="36" selection-end-line="22" selection-end-column="36" />
           <folding>
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
+            <element signature="e#4260#4261#0" expanded="true" />
+            <element signature="e#4300#4301#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="227" column="28" lean-forward="true" selection-start-line="227" selection-start-column="28" selection-end-line="227" selection-end-column="28" />
+        <state relative-caret-position="-1419">
+          <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7373#7374#0" expanded="true" />
-            <element signature="e#7420#7421#0" expanded="true" />
+            <element signature="e#10558#10559#0" expanded="true" />
+            <element signature="e#10605#10606#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
+    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="127" column="34" lean-forward="false" selection-start-line="127" selection-start-column="34" selection-end-line="127" selection-end-column="34" />
+        <state relative-caret-position="272">
+          <caret line="17" column="72" lean-forward="false" selection-start-line="17" selection-start-column="72" selection-end-line="17" selection-end-column="72" />
           <folding>
-            <element signature="e#4260#4261#0" expanded="true" />
-            <element signature="e#4300#4301#0" expanded="true" />
+            <element signature="e#2190#2191#0" expanded="true" />
+            <element signature="e#2236#2237#0" expanded="true" />
           </folding>
         </state>
       </provider>

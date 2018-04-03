@@ -10,13 +10,24 @@ import java.util.*;
  *
  */
 class BasicBufferMgr {
+   //=====================================CS4432-Project1=====================
+   //the buffer pool -- contains all buffers
    private Buffer[] bufferpool;
+   //number of buffers that can be used for replacement (free and unpinned)
    private int numAvailable;
+   //linked list of all the empty frames left in the buffer pool
    private List<Integer> avaliableFrames;
+   //hashmap of blocks to frame in the buffer pool
    private Map<Block, Integer> buffers;
+   //what replacement policy we should be using
    private String replacementPolicy;
+   //for the least recently used policy, the first element in the array should be
+   //the least recently used buffer
    private List<Integer> leastRecentlyUsedArray;
+   //for clock policy, what frame the clock pointer is pointing to now -- initially
+   //starts at zero because we assume we don't use this policy until all buffers filled
    private int clockFrame;
+   //what is the max number the clock pointer can get to
    private int maxClockFrame;
 
    /**
@@ -31,8 +42,11 @@ class BasicBufferMgr {
     * {@link simpledb.server.SimpleDB#initFileAndLogMgr(String)} or
     * is called first.
     * @param numbuffs the number of buffer slots to allocate
+    * @param policy the replacement policy we should be using
     */
    BasicBufferMgr(int numbuffs, String policy) {
+      //=====================================CS4432-Project1=====================
+      //initialize all values found above
       bufferpool = new Buffer[numbuffs];
       maxClockFrame = numbuffs - 1;
       numAvailable = numbuffs;
@@ -42,9 +56,13 @@ class BasicBufferMgr {
       leastRecentlyUsedArray = new LinkedList<>();
       //assuming we fill up the buffer, we will want to start removing buffers by looking at the first buffer again
       clockFrame = 0;
+      //put a new buffer into each spot in the bufferpool
+      //also set the buffer ID (frame number) of that buffer
       for (int i=0; i<numbuffs; i++) {
          bufferpool[i] = new Buffer();
          bufferpool[i].setFrameNumber(i);
+         //since no blocks start out associated with a buffer, all should be empty at first
+         //add each of the frame spots to the linked list of empty frames
          avaliableFrames.add(i);
       }
    }
@@ -69,6 +87,7 @@ class BasicBufferMgr {
     * @return the pinned buffer
     */
    synchronized Buffer pin(Block blk) {
+      //=====================================CS4432-Project1=====================
       Buffer buff = findExistingBuffer(blk);
       if (buff == null) {
          buff = chooseUnpinnedBuffer();
@@ -77,8 +96,11 @@ class BasicBufferMgr {
          buff.assignToBlock(blk);
       }
       if (!buff.isPinned()) {
+         //because we have the buffer pinned, that buffer is no longer available
          numAvailable--;
 
+         //if we have a replacement policy of LRU, we know that this buffer is no longer valid for
+         //replacement, so we can remove it from the array of frame numbers
          if (replacementPolicy.equalsIgnoreCase("LRU")){
             //if we had previously added this buffer to the LRU array, we should remove
             int location = leastRecentlyUsedArray.indexOf(buff.getFrameNumber());
@@ -88,6 +110,7 @@ class BasicBufferMgr {
             }
          }
       }
+      //pin the block to the buffer
       buff.pin();
       return buff;
    }
@@ -102,12 +125,17 @@ class BasicBufferMgr {
     * @return the pinned buffer
     */
    synchronized Buffer pinNew(String filename, PageFormatter fmtr) {
+      //=====================================CS4432-Project1=====================
+      //get an empty buffer or buffer that is okay for replacement
       Buffer buff = chooseUnpinnedBuffer();
+      //if we returned null, there was no available buffers, so just return null
       if (buff == null)
          return null;
+      //add block to that buffer and pin it
       buff.assignToNew(filename, fmtr);
       numAvailable--;
       buff.pin();
+      //associate the block with the frame number for easy access
       buffers.put(buff.block(), buff.getFrameNumber());
       return buff;
    }
@@ -117,11 +145,15 @@ class BasicBufferMgr {
     * @param buff the buffer to be unpinned
     */
    synchronized void unpin(Buffer buff) {
+      //=====================================CS4432-Project1=====================
       buff.unpin();
       if (!buff.isPinned()) {
+         //if the buffer is now unpinned, we should re-add the buffer to the least recently
+         //used linked list so that we can use it if need be
          if (replacementPolicy.equalsIgnoreCase("LRU")){
             leastRecentlyUsedArray.add(buff.getFrameNumber());
          }
+         //increment the number of available
          numAvailable++;
       }
    }
@@ -134,7 +166,15 @@ class BasicBufferMgr {
       return numAvailable;
    }
 
+   /**
+    * Finds an existing buffer if it does indeed exist
+    * @param blk
+    * @return existing buffer based upon given block
+    */
    private Buffer findExistingBuffer(Block blk) {
+      //=====================================CS4432-Project1=====================
+      //lookup the block from the list of all buffers, and if we can find a frame number
+      //we should return that buffer
       if (buffers.get(blk) != null){
          //get the frame number
          int frame = buffers.get(blk);
@@ -145,7 +185,7 @@ class BasicBufferMgr {
             if (replacementPolicy.equalsIgnoreCase("LRU")) {
                int location = leastRecentlyUsedArray.indexOf(frame);
                if (location != -1){
-                  //remove and readd at the end of the array
+                  //remove and re-add at the end of the array
                   leastRecentlyUsedArray.remove(location);
                   leastRecentlyUsedArray.add(frame);
                }
@@ -155,18 +195,29 @@ class BasicBufferMgr {
          //return the existing buffer
          return bufferpool[frame];
       }
+      //we could not find the frame number (ie. it does not exist) so return null
       return null;
    }
 
+   /**
+    * returns the next available buffer based on certain criteria
+    * @return Buffer
+    */
    private Buffer chooseUnpinnedBuffer() {
+      //=====================================CS4432-Project1=====================
+      //if we still have unused buffers, we can use these first
       if (avaliableFrames.size() != 0){
+         //look up the first unused buffer, and return that
          int frame = avaliableFrames.get(0);
          avaliableFrames.remove(0);
 
          return bufferpool[frame];
-      } else {
+      } else { //all of our buffers have been used, so we need to use a replacement policy
+         //LRU replacement policy
          if (replacementPolicy.equalsIgnoreCase("LRU")){
+            //if we actually have frames that we can replace than use those
             if (leastRecentlyUsedArray.size() != 0){
+               //get the least recently used frame
                int frame = leastRecentlyUsedArray.get(0);
 
                //need to remove the association
@@ -174,45 +225,35 @@ class BasicBufferMgr {
                buffers.put(buff.block(), null);
                leastRecentlyUsedArray.remove(0);
 
+               //return the buffer in this frame
                return bufferpool[frame];
             }
-
+            //CLOCK replacement policy
          } else if (replacementPolicy.equalsIgnoreCase("CLOCK")) {
-            int frame = clockFrame;
-            if (clockFrame == maxClockFrame){
-               clockFrame = 0;
-            } else {
-               clockFrame += 1;
-            }
-
-            if (!bufferpool[frame].isPinned()){
-               //need to remove the association
-               Buffer buff = bufferpool[frame];
-               buffers.put(buff.block(), null);
-
-               return bufferpool[frame];
-            } else { //if the frame we just looked at is pinned, we need to keep looking for an unpinned frame
-               //to avoid an infinite loop, we ONLY want to loop up to the max-number of frames, and if we get to there, then we can return null because no frames are unpinned
-               int i = 0;
-               while (i != (maxClockFrame - 1)) {
-                  if (!bufferpool[clockFrame].isPinned()) {
-                     //need to remove the association
-                     Buffer buff = bufferpool[frame];
-                     buffers.put(buff.block(), null);
-
-                     return bufferpool[clockFrame];
-                  }
-
-                  if (clockFrame == maxClockFrame) {
+            //if we have unpinned buffers is the only time we should run the replacement policy
+            if (numAvailable != 0){
+               while (true){ //infinite loop
+                  //get the current frame that clock policy is pointing to
+                  int frame = clockFrame;
+                  //increment the pointer
+                  if (clockFrame == maxClockFrame){
                      clockFrame = 0;
                   } else {
                      clockFrame += 1;
                   }
 
-                  i++;
+                  //if the buffer at this frame is unpinned, we can use it
+                  if (!bufferpool[frame].isPinned()){
+                     //need to remove the association
+                     Buffer buff = bufferpool[frame];
+                     buffers.put(buff.block(), null);
+
+                     return bufferpool[frame];
+                  }
+                  //otherwise we keep going, until we find an available buffer (since we know there is at least one)
                }
             }
-         } else { //we are using neither LRU nor Clock, so we'll just do a inefficient lookup
+         } else { //we are using neither LRU nor Clock, so we'll just do a inefficient lookup to avoid returning null
             for (Buffer buff : bufferpool)
                if (!buff.isPinned()) {
                   buffers.put(buff.block(), null);
@@ -224,6 +265,12 @@ class BasicBufferMgr {
       return null;
    }
 
+   //=====================================CS4432-Project1=====================
+
+   /**
+    * Prints out all the buffers in the bufferpool
+    * @return all the buffers in the bufferpool in String format
+    */
    @Override
    public String  toString() {
       return Arrays.toString(bufferpool);
