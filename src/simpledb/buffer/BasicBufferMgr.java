@@ -2,8 +2,9 @@ package simpledb.buffer;
 
 import simpledb.file.*;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -14,51 +15,43 @@ import java.util.Map;
 class BasicBufferMgr {
    private Buffer[] bufferpool;
    private int numAvailable;
-   //hashmap of all free buffer spots left
-   private Map<Integer, Integer> availableSlots;
-   //hashmap of block filenames associated with a buffer spot in the buffer pool
-   private Map<String, Integer> buffers;
-   //array of all filled frame spots in the buffer pool
-   ArrayList<Integer> usedFrames;
-   //what replacement policy that we are using
+   private List<Integer> avaliableFrames;
+   private Map<Block, Integer> buffers;
    private String replacementPolicy;
-   
+   private List<Integer> leastRecentlyUsedArray;
+   private int clockFrame;
+   private int maxClockFrame;
+
    /**
-    * Creates a buffer manager having the specified number 
+    * Creates a buffer manager having the specified number
     * of buffer slots.
     * This constructor depends on both the {@link FileMgr} and
-    * {@link simpledb.log.LogMgr LogMgr} objects 
+    * {@link simpledb.log.LogMgr LogMgr} objects
     * that it gets from the class
     * {@link simpledb.server.SimpleDB}.
     * Those objects are created during system initialization.
-    * Thus this constructor cannot be called until 
+    * Thus this constructor cannot be called until
     * {@link simpledb.server.SimpleDB#initFileAndLogMgr(String)} or
     * is called first.
     * @param numbuffs the number of buffer slots to allocate
-    * @param policy the type of replacement policy that we will use when buffer gets filled
     */
    BasicBufferMgr(int numbuffs, String policy) {
-      //set up the entire bufferpool based upon a pre-specified number of buffers
       bufferpool = new Buffer[numbuffs];
-      //the number of free buffers in the buffer pool
+      maxClockFrame = numbuffs - 1;
       numAvailable = numbuffs;
-      //which frames are free in the buffer pool
-      availableSlots = new HashMap<>();
-      //block names associated with buffer frame in the buffer pool
+      avaliableFrames = new LinkedList<>();
       buffers = new HashMap<>();
-      //what replacement policy we should be using
       replacementPolicy = policy;
-      //what buffers/frames are already associated with a particular block
-      usedFrames = new ArrayList<>();
-
-      //populate the buffer pool and available slots
+      leastRecentlyUsedArray = new LinkedList<>();
+      //assuming we fill up the buffer, we will want to start removing buffers by looking at the first buffer again
+      clockFrame = 0;
       for (int i=0; i<numbuffs; i++) {
          bufferpool[i] = new Buffer();
          bufferpool[i].setFrameNumber(i);
-         availableSlots.put(i, 0);
+         avaliableFrames.add(i);
       }
    }
-   
+
    /**
     * Flushes the dirty buffers modified by the specified transaction.
     * @param txnum the transaction's id number
@@ -66,13 +59,13 @@ class BasicBufferMgr {
    synchronized void flushAll(int txnum) {
       for (Buffer buff : bufferpool)
          if (buff.isModifiedBy(txnum))
-         buff.flush();
+            buff.flush();
    }
-   
+
    /**
-    * Pins a buffer to the specified block. 
+    * Pins a buffer to the specified block.
     * If there is already a buffer assigned to that block
-    * then that buffer is used;  
+    * then that buffer is used;
     * otherwise, an unpinned buffer from the pool is chosen.
     * Returns a null value if there are no available buffers.
     * @param blk a reference to a disk block
@@ -86,18 +79,26 @@ class BasicBufferMgr {
             return null;
          buff.assignToBlock(blk);
       }
-      if (!buff.isPinned())
+      if (!buff.isPinned()) {
          numAvailable--;
+
+         if (replacementPolicy.equalsIgnoreCase("LRU")){
+            //if we had previously added this buffer to the LRU array, we should remove
+            int location = leastRecentlyUsedArray.indexOf(buff.getFrameNumber());
+            if (location != -1){
+               //remove it
+               leastRecentlyUsedArray.remove(location);
+            }
+         }
+      }
       buff.pin();
-      //associate the pinned block with the buffer's frame number in the buffer pool
-      buffers.put(blk.fileName(), buff.getFrameNumber());
       return buff;
    }
-   
+
    /**
     * Allocates a new block in the specified file, and
-    * pins a buffer to it. 
-    * Returns null (without allocating the block) if 
+    * pins a buffer to it.
+    * Returns null (without allocating the block) if
     * there are no available buffers.
     * @param filename the name of the file
     * @param fmtr a pageformatter object, used to format the new block
@@ -110,28 +111,24 @@ class BasicBufferMgr {
       buff.assignToNew(filename, fmtr);
       numAvailable--;
       buff.pin();
-      //associate the pinned block with the buffer's frame number in the buffer pool
-      buffers.put(buff.block().fileName(), buff.getFrameNumber());
+      buffers.put(buff.block(), buff.getFrameNumber());
       return buff;
    }
-   
+
    /**
     * Unpins the specified buffer.
     * @param buff the buffer to be unpinned
     */
    synchronized void unpin(Buffer buff) {
-      String filename = buff.block().fileName();
       buff.unpin();
       if (!buff.isPinned()) {
-         //since we unpinned the buffer with a block, we can free it up by adding it to the hashmap
-         availableSlots.put(buff.getFrameNumber(), 0);
-         //since we unpinned the block from this buffer, we can remove the association
-         buffers.remove(filename);
-         //up the number available
+         if (replacementPolicy.equalsIgnoreCase("LRU")){
+            leastRecentlyUsedArray.add(buff.getFrameNumber());
+         }
          numAvailable++;
       }
    }
-   
+
    /**
     * Returns the number of available (i.e. unpinned) buffers.
     * @return the number of available buffers
@@ -139,28 +136,94 @@ class BasicBufferMgr {
    int available() {
       return numAvailable;
    }
-   
+
    private Buffer findExistingBuffer(Block blk) {
-      //check to see if our hashmap has the block in it
-      if (buffers.get(blk.fileName()) != null){
-         //if it does return the buffer frame number associated with that block
-         int frameNumber = buffers.get(blk.fileName());
-         return bufferpool[frameNumber];
+      if (buffers.get(blk) != null){
+         //get the frame number
+         int frame = buffers.get(blk);
+
+         //since we were looking up the buffer, we need to reorder our LRU array if
+         //the block searched for is unpinned
+         if (!bufferpool[frame].isPinned()){
+            if (replacementPolicy.equalsIgnoreCase("LRU")) {
+               int location = leastRecentlyUsedArray.indexOf(frame);
+               if (location != -1){
+                  //remove and readd at the end of the array
+                  leastRecentlyUsedArray.remove(location);
+                  leastRecentlyUsedArray.add(frame);
+               }
+            }
+         }
+
+         //return the existing buffer
+         return bufferpool[frame];
       }
-      //otherwise return null because we could not locate it
       return null;
    }
 
    private Buffer chooseUnpinnedBuffer() {
-      //look up free slots from the list of free frames in the availableslots hashmap
-      if (availableSlots.keySet().toArray().length != 0){
-         //get the first free frame found and remove it from the hashmap
-         int firstOpenSlot = (int) availableSlots.keySet().toArray()[0];
-         availableSlots.remove(firstOpenSlot);
-         //return the buffer at that frame
-         return bufferpool[firstOpenSlot];
+      if (avaliableFrames.size() != 0){
+         int frame = avaliableFrames.get(0);
+         avaliableFrames.remove(0);
+
+         return bufferpool[frame];
+      } else {
+         if (replacementPolicy.equalsIgnoreCase("LRU")){
+            if (leastRecentlyUsedArray.size() != 0){
+               int frame = leastRecentlyUsedArray.get(0);
+
+               //need to remove the association
+               Buffer buff = bufferpool[frame];
+               buffers.put(buff.block(), null);
+               leastRecentlyUsedArray.remove(0);
+
+               return bufferpool[frame];
+            }
+
+         } else if (replacementPolicy.equalsIgnoreCase("CLOCK")) {
+            int frame = clockFrame;
+            if (clockFrame == maxClockFrame){
+               clockFrame = 0;
+            } else {
+               clockFrame += 1;
+            }
+
+            if (!bufferpool[frame].isPinned()){
+               //need to remove the association
+               Buffer buff = bufferpool[frame];
+               buffers.put(buff.block(), null);
+
+               return bufferpool[frame];
+            } else { //if the frame we just looked at is pinned, we need to keep looking for an unpinned frame
+               //to avoid an infinite loop, we ONLY want to loop up to the max-number of frames, and if we get to there, then we can return null because no frames are unpinned
+               int i = 0;
+               while (i != (maxClockFrame - 1)) {
+                  if (!bufferpool[clockFrame].isPinned()) {
+                     //need to remove the association
+                     Buffer buff = bufferpool[frame];
+                     buffers.put(buff.block(), null);
+
+                     return bufferpool[clockFrame];
+                  }
+
+                  if (clockFrame == maxClockFrame) {
+                     clockFrame = 0;
+                  } else {
+                     clockFrame += 1;
+                  }
+
+                  i++;
+               }
+            }
+         } else { //we are using neither LRU nor Clock, so we'll just do a inefficient lookup
+            for (Buffer buff : bufferpool)
+               if (!buff.isPinned()) {
+                  buffers.put(buff.block(), null);
+                  return buff;
+               }
+         }
       }
-      //this needs to be modified -- but for now return null if there are no open frames
+
       return null;
    }
 }

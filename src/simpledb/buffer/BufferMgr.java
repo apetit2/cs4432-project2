@@ -34,6 +34,7 @@ public class BufferMgr {
     * {@link simpledb.server.SimpleDB#initFileAndLogMgr(String)} or
     * is called first.
     * @param numbuffers the number of buffer slots to allocate
+    * @param replacementPolicy the replacement policy we should use
     */
    public BufferMgr(int numbuffers, String replacementPolicy) {
       bufferMgr = new BasicBufferMgr(numbuffers, replacementPolicy);

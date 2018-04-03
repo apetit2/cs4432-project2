@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="" />
+    <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/StudentMajorNoServer.class" afterPath="$PROJECT_DIR$/bin/StudentMajorNoServer.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/buffer/BasicBufferMgr.class" afterPath="$PROJECT_DIR$/bin/simpledb/buffer/BasicBufferMgr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/buffer/BufferMgr.class" afterPath="$PROJECT_DIR$/bin/simpledb/buffer/BufferMgr.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/Startup.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/Startup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" afterPath="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" afterPath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/Startup.java" afterPath="$PROJECT_DIR$/src/simpledb/server/Startup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/studentClient/simpledb/StudentMajorNoServer.java" afterPath="$PROJECT_DIR$/studentClient/simpledb/StudentMajorNoServer.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,47 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SimpleDB.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
+      <file leaf-file-name="BufferMgr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="79" column="57" lean-forward="false" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2875#2876#0" expanded="true" />
-                <element signature="e#2920#2921#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Startup.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/server/Startup.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecordFile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordFile.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1241">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-              <folding>
-                <element signature="e#1940#1941#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RecordPage.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordPage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2261">
-              <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+            <state relative-caret-position="663">
+              <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -61,52 +38,66 @@
       <file leaf-file-name="Buffer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+            <state relative-caret-position="969">
+              <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
               <folding>
-                <element signature="e#2038#2039#0" expanded="true" />
                 <element signature="e#2084#2085#0" expanded="true" />
-                <element signature="e#5788#5789#0" expanded="true" />
-                <element signature="e#5819#5820#0" expanded="true" />
-                <element signature="e#5861#5862#0" expanded="true" />
-                <element signature="e#5904#5905#0" expanded="true" />
+                <element signature="e#5787#5788#0" expanded="true" />
+                <element signature="e#5818#5819#0" expanded="true" />
+                <element signature="e#5860#5861#0" expanded="true" />
+                <element signature="e#5903#5904#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NewQueries.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/studentClient/simpledb/NewQueries.java">
+      <file leaf-file-name="idea64.exe.vmoptions" pinned="false" current-in-tab="false">
+        <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state relative-caret-position="51">
+              <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordFile.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordFile.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="510">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="TableMgr.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/TableMgr.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1020">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RecordPage.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordPage.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="493">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/tx/Transaction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1411">
+              <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1521579680051" expanded="true" signature="359:435" ph="create table... CARS" />
-                <marker date="1521579680051" expanded="true" signature="546:596" ph="insert into CARS... " />
-                <marker date="1521579680051" expanded="true" signature="632:656" ph="(1, '320i', " />
-                <marker date="1521579680051" expanded="true" signature="692:717" ph="(2, 'MDX', '... " />
-                <marker date="1521579680051" expanded="true" signature="753:788" ph="(3, 'Silvera... " />
-                <marker date="1521579680051" expanded="true" signature="824:858" ph="(4, 'C300', " />
-                <marker date="1521579680051" expanded="true" signature="894:924" ph="(5, 'Corolla... " />
-                <marker date="1521579680051" expanded="true" signature="1123:1146" ph="select * fro... CARS" />
-                <marker date="1521579680051" expanded="true" signature="1424:1445" ph="select CMake... CAR" />
-                <marker date="1521579680051" expanded="true" signature="1424:1463" ph="select CMake... CARS" />
-                <marker date="1521579680051" expanded="true" signature="1733:1749" ph="delete from " />
-                <marker date="1521579680051" expanded="true" signature="1867:1945" ph="create table... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="2057:2109" ph="insert into BOOKS... " />
-                <marker date="1521579680051" expanded="true" signature="2146:2191" ph="(1, 'Brave N... " />
-                <marker date="1521579680051" expanded="true" signature="2228:2283" ph="(2, 'Where A... " />
-                <marker date="1521579680051" expanded="true" signature="2320:2377" ph="(3, 'For Who... " />
-                <marker date="1521579680051" expanded="true" signature="2414:2454" ph="(4, 'On the " />
-                <marker date="1521579680051" expanded="true" signature="2491:2529" ph="(5, 'Catch-2... " />
-                <marker date="1521579680051" expanded="true" signature="2566:2602" ph="(6, 'Island'... " />
-                <marker date="1521579680051" expanded="true" signature="2805:2835" ph="select BName... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="2805:2845" ph="select BName... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="3121:3165" ph="select BName... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="3121:3185" ph="select BName... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="3121:3209" ph="select BName... BOOKS" />
-                <marker date="1521579680051" expanded="true" signature="3630:3647" ph="delete from " />
+                <element signature="e#2742#2743#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -115,8 +106,8 @@
       <file leaf-file-name="BasicBufferMgr.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="162" column="88" lean-forward="false" selection-start-line="162" selection-start-column="88" selection-end-line="162" selection-end-column="88" />
+            <state relative-caret-position="254">
+              <caret line="201" column="47" lean-forward="false" selection-start-line="201" selection-start-column="47" selection-end-line="201" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,21 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BufferMgr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
+      <file leaf-file-name="PageFormatter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/PageFormatter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FileMgr.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/file/FileMgr.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+            <state relative-caret-position="170">
+              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -147,9 +128,11 @@
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/file/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-              <folding />
+            <state relative-caret-position="493">
+              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+              <folding>
+                <element signature="e#781#782#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -163,6 +146,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
       <projects_view />
@@ -172,9 +158,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/studentClient/simpledb/NewQueries.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
         <option value="$PROJECT_DIR$/src/simpledb/server/Startup.java" />
         <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
+        <option value="$PROJECT_DIR$/studentClient/simpledb/StudentMajorNoServer.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/buffer/Buffer.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions" />
         <option value="$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java" />
         <option value="$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java" />
       </list>
@@ -188,7 +176,7 @@
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-7" />
-    <option name="width" value="867" />
+    <option name="width" value="866" />
     <option name="height" value="967" />
   </component>
   <component name="ProjectView">
@@ -207,9 +195,6 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="PackagesPane" />
-      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -247,7 +232,21 @@
               <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simpledb" type="462c0819:PsiDirectoryNode" />
+              <item name="index" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
+              <item name="tx" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
@@ -264,6 +263,9 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -325,7 +327,7 @@
       </extension>
       <option name="MAIN_CLASS_NAME" value="simpledb.server.Startup" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="cs4432DB" />
+      <option name="PROGRAM_PARAMETERS" value="cs4432DB LRU" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
@@ -448,12 +450,16 @@
       <workItem from="1521055579911" duration="789000" />
       <workItem from="1521569831183" duration="13321000" />
       <workItem from="1521657195397" duration="6509000" />
-      <workItem from="1522002179752" duration="1107000" />
+      <workItem from="1522002179752" duration="1704000" />
+      <workItem from="1522185387965" duration="6320000" />
+      <workItem from="1522347826716" duration="4474000" />
+      <workItem from="1522689692496" duration="16727000" />
+      <workItem from="1522783425039" duration="2839000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22199000" />
+    <option name="totallyTimeSpent" value="53156000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1723" height="976" extended-state="6" />
@@ -466,26 +472,26 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32560834" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3559719" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.055653192" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13884006" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39976826" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3298153" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32792583" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -495,140 +501,19 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="15" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="79" column="57" lean-forward="false" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/server/Startup.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#1940#1941#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-          <folding>
-            <element signature="e#2038#2039#0" expanded="true" />
-            <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#5819#5820#0" expanded="true" />
-            <element signature="e#5861#5862#0" expanded="true" />
-            <element signature="e#5904#5905#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/studentClient/simpledb/NewQueries.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1521579680051" expanded="true" signature="359:435" ph="create table... CARS" />
-            <marker date="1521579680051" expanded="true" signature="546:596" ph="insert into CARS... " />
-            <marker date="1521579680051" expanded="true" signature="632:656" ph="(1, '320i', " />
-            <marker date="1521579680051" expanded="true" signature="692:717" ph="(2, 'MDX', '... " />
-            <marker date="1521579680051" expanded="true" signature="753:788" ph="(3, 'Silvera... " />
-            <marker date="1521579680051" expanded="true" signature="824:858" ph="(4, 'C300', " />
-            <marker date="1521579680051" expanded="true" signature="894:924" ph="(5, 'Corolla... " />
-            <marker date="1521579680051" expanded="true" signature="1123:1146" ph="select * fro... CARS" />
-            <marker date="1521579680051" expanded="true" signature="1424:1445" ph="select CMake... CAR" />
-            <marker date="1521579680051" expanded="true" signature="1424:1463" ph="select CMake... CARS" />
-            <marker date="1521579680051" expanded="true" signature="1733:1749" ph="delete from " />
-            <marker date="1521579680051" expanded="true" signature="1867:1945" ph="create table... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="2057:2109" ph="insert into BOOKS... " />
-            <marker date="1521579680051" expanded="true" signature="2146:2191" ph="(1, 'Brave N... " />
-            <marker date="1521579680051" expanded="true" signature="2228:2283" ph="(2, 'Where A... " />
-            <marker date="1521579680051" expanded="true" signature="2320:2377" ph="(3, 'For Who... " />
-            <marker date="1521579680051" expanded="true" signature="2414:2454" ph="(4, 'On the " />
-            <marker date="1521579680051" expanded="true" signature="2491:2529" ph="(5, 'Catch-2... " />
-            <marker date="1521579680051" expanded="true" signature="2566:2602" ph="(6, 'Island'... " />
-            <marker date="1521579680051" expanded="true" signature="2805:2835" ph="select BName... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="2805:2845" ph="select BName... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="3121:3165" ph="select BName... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="3121:3185" ph="select BName... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="3121:3209" ph="select BName... BOOKS" />
-            <marker date="1521579680051" expanded="true" signature="3630:3647" ph="delete from " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/file/FileMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/file/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="35" lean-forward="true" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="629">
-          <caret line="41" column="37" lean-forward="false" selection-start-line="41" selection-start-column="37" selection-end-line="41" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1360">
           <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
+            <element signature="e#3027#3028#0" expanded="false" />
+            <element signature="e#3072#3073#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -644,9 +529,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1241">
           <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#1940#1941#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -669,7 +552,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -678,12 +560,11 @@
         <state relative-caret-position="952">
           <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
           <folding>
-            <element signature="e#2038#2039#0" expanded="true" />
             <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#5819#5820#0" expanded="true" />
-            <element signature="e#5861#5862#0" expanded="true" />
-            <element signature="e#5904#5905#0" expanded="true" />
+            <element signature="e#5787#5788#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#5860#5861#0" expanded="true" />
+            <element signature="e#5903#5904#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -755,20 +636,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/remote/SimpleStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/studentClient/simpledb/ChangeMajor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="3" column="13" lean-forward="false" selection-start-line="3" selection-start-column="13" selection-end-line="3" selection-end-column="13" />
-          <folding>
-            <marker date="1520899338606" expanded="true" signature="315:383" ph="update STUDE... " />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -776,9 +647,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
           <caret line="14" column="0" lean-forward="true" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <marker date="1520899338629" expanded="true" signature="513:659" ph="select sname... student" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -786,55 +654,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1037">
           <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <marker date="1520899338618" expanded="true" signature="317:392" ph="create table... STUDENT" />
-            <marker date="1520899338618" expanded="true" signature="479:536" ph="insert into STUDENT... " />
-            <marker date="1520899338618" expanded="true" signature="565:585" ph="(1, 'joe', 1... " />
-            <marker date="1520899338618" expanded="true" signature="598:618" ph="(2, 'amy', 2... " />
-            <marker date="1520899338618" expanded="true" signature="631:651" ph="(3, 'max', 1... " />
-            <marker date="1520899338618" expanded="true" signature="664:684" ph="(4, 'sue', 2... " />
-            <marker date="1520899338618" expanded="true" signature="697:717" ph="(5, 'bob', 3... " />
-            <marker date="1520899338618" expanded="true" signature="730:750" ph="(6, 'kim', 2... " />
-            <marker date="1520899338618" expanded="true" signature="763:783" ph="(7, 'art', 3... " />
-            <marker date="1520899338618" expanded="true" signature="796:816" ph="(8, 'pat', 2... " />
-            <marker date="1520899338618" expanded="true" signature="829:849" ph="(9, 'lee', 1... " />
-            <marker date="1520899338618" expanded="true" signature="996:1040" ph="create table... DEPT" />
-            <marker date="1520899338618" expanded="true" signature="1124:1159" ph="insert into DEPT... " />
-            <marker date="1520899338618" expanded="true" signature="1188:1203" ph="(10, 'compsc... " />
-            <marker date="1520899338618" expanded="true" signature="1241:1254" ph="(30, 'drama'... " />
-            <marker date="1520899338618" expanded="true" signature="1398:1457" ph="create table... COURSE" />
-            <marker date="1520899338618" expanded="true" signature="1543:1588" ph="insert into COURSE... " />
-            <marker date="1520899338618" expanded="true" signature="1619:1641" ph="(12, 'db sys... " />
-            <marker date="1520899338618" expanded="true" signature="1656:1677" ph="(22, 'compil... " />
-            <marker date="1520899338618" expanded="true" signature="1692:1712" ph="(32, 'calcul... " />
-            <marker date="1520899338618" expanded="true" signature="1727:1746" ph="(42, 'algebr... " />
-            <marker date="1520899338618" expanded="true" signature="1761:1779" ph="(52, 'acting... " />
-            <marker date="1520899338618" expanded="true" signature="1794:1815" ph="(62, 'elocut... " />
-            <marker date="1520899338618" expanded="true" signature="1965:2045" ph="create table... SECTION" />
-            <marker date="1520899338618" expanded="true" signature="2132:2195" ph="insert into SECTION... " />
-            <marker date="1520899338618" expanded="true" signature="2224:2248" ph="(13, 12, 'tu... " />
-            <marker date="1520899338618" expanded="true" signature="2261:2285" ph="(23, 12, 'tu... " />
-            <marker date="1520899338618" expanded="true" signature="2298:2322" ph="(33, 32, 'ne... " />
-            <marker date="1520899338618" expanded="true" signature="2335:2361" ph="(43, 32, 'ei... " />
-            <marker date="1520899338618" expanded="true" signature="2374:2398" ph="(53, 62, 'br... " />
-            <marker date="1520899338618" expanded="true" signature="2545:2621" ph="create table... ENROLL" />
-            <marker date="1520899338618" expanded="true" signature="2707:2766" ph="insert into ENROLL... " />
-            <marker date="1520899338618" expanded="true" signature="2797:2813" ph="(14, 1, 13, " />
-            <marker date="1520899338618" expanded="true" signature="2828:2845" ph="(24, 1, 43, " />
-            <marker date="1520899338618" expanded="true" signature="2860:2877" ph="(34, 2, 43, " />
-            <marker date="1520899338618" expanded="true" signature="2892:2909" ph="(44, 4, 33, " />
-            <marker date="1520899338618" expanded="true" signature="2924:2941" ph="(54, 4, 53, " />
-            <marker date="1520899338618" expanded="true" signature="2956:2973" ph="(64, 6, 53, " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/file/Page.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-328">
-          <caret line="37" column="13" lean-forward="false" selection-start-line="37" selection-start-column="13" selection-end-line="37" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -842,45 +661,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/MetadataMgr.java">
+    <entry file="file://$PROJECT_DIR$/studentClient/simpledb/StudentMajorNoServer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/StatMgr.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordFile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1241">
-          <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#1940#1941#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordPage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="143" column="0" lean-forward="false" selection-start-line="143" selection-start-column="0" selection-end-line="143" selection-end-column="0" />
+        <state relative-caret-position="391">
+          <caret line="25" column="44" lean-forward="false" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/studentClient/simpledb/NewQueries.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
+        <state relative-caret-position="185">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -913,69 +707,264 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/record/Schema.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="104" column="0" lean-forward="false" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/query/TableScan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="79" column="0" lean-forward="false" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/planner/BasicUpdatePlanner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/planner/Planner.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/remote/RemoteStatementImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/remote/SimpleStatement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/index/btree/BTreeIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-223">
+          <caret line="17" column="11" lean-forward="false" selection-start-line="17" selection-start-column="11" selection-end-line="17" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/index/btree/BTreePage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="243">
+          <caret line="248" column="20" lean-forward="true" selection-start-line="248" selection-start-column="20" selection-end-line="248" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/concurrency/LockTable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="68" column="0" lean-forward="false" selection-start-line="68" selection-start-column="0" selection-end-line="68" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/log/LogMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/record/TableInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/concurrency/ConcurrencyMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/file/FileMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        <state relative-caret-position="258">
+          <caret line="66" column="0" lean-forward="false" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/file/Page.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="130" column="0" lean-forward="false" selection-start-line="130" selection-start-column="0" selection-end-line="130" selection-end-column="0" />
+          <folding>
+            <element signature="e#3230#3231#0" expanded="false" />
+            <element signature="e#3270#3271#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/IndexMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/MetadataMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/server/Startup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/recovery/SetStringRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="77" column="0" lean-forward="false" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/recovery/SetIntRecord.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/recovery/RecoveryMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="224">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding>
+            <element signature="e#3027#3028#0" expanded="false" />
+            <element signature="e#3072#3073#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/StatMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/BufferList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="35" column="0" lean-forward="false" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/tx/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1411">
+          <caret line="87" column="0" lean-forward="false" selection-start-line="87" selection-start-column="0" selection-end-line="87" selection-end-column="0" />
+          <folding>
+            <element signature="e#2742#2743#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordPage.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/record/RecordFile.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/TableMgr.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1020">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/file/Block.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="35" lean-forward="false" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+        <state relative-caret-position="493">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="e#781#782#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/PageFormatter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/Buffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="16" column="31" lean-forward="false" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+        <state relative-caret-position="969">
+          <caret line="60" column="0" lean-forward="false" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
-            <element signature="e#2038#2039#0" expanded="true" />
             <element signature="e#2084#2085#0" expanded="true" />
-            <element signature="e#5788#5789#0" expanded="true" />
-            <element signature="e#5819#5820#0" expanded="true" />
-            <element signature="e#5861#5862#0" expanded="true" />
-            <element signature="e#5904#5905#0" expanded="true" />
+            <element signature="e#5787#5788#0" expanded="true" />
+            <element signature="e#5818#5819#0" expanded="true" />
+            <element signature="e#5860#5861#0" expanded="true" />
+            <element signature="e#5903#5904#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/server/Startup.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/idea64.exe.vmoptions">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="8" column="38" lean-forward="false" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
+        <state relative-caret-position="51">
+          <caret line="3" column="8" lean-forward="false" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="79" column="57" lean-forward="false" selection-start-line="79" selection-start-column="57" selection-end-line="79" selection-end-column="57" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2875#2876#0" expanded="true" />
-            <element signature="e#2920#2921#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BufferMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" column="66" lean-forward="false" selection-start-line="38" selection-start-column="66" selection-end-line="38" selection-end-column="66" />
+        <state relative-caret-position="663">
+          <caret line="39" column="66" lean-forward="false" selection-start-line="39" selection-start-column="66" selection-end-line="39" selection-end-column="66" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/buffer/BasicBufferMgr.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="162" column="88" lean-forward="false" selection-start-line="162" selection-start-column="88" selection-end-line="162" selection-end-column="88" />
+        <state relative-caret-position="254">
+          <caret line="201" column="47" lean-forward="false" selection-start-line="201" selection-start-column="47" selection-end-line="201" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

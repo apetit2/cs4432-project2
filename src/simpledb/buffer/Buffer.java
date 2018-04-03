@@ -189,7 +189,7 @@ public class Buffer {
       pins = 0;
    }
 
-   int getFrameNumber() {
+   int getFrameNumber(){
       return frameNumber;
    }
 
