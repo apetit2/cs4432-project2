@@ -1,0 +1,19 @@
+Least Recently Used Replacement Policy:
+    This policy was implemented by solely modifying the BasicBufferMgr.Java page.
+    To implement it, we used a linked-list to keep track of the frame numbers of all unpinned buffers in the buffer pool.
+    This linked list was updated every time a buffer was looked up, whereas we would reposition the buffer that
+    was just searched for to have its frame be at the end of the list because it was that buffer was now the most recently used. In this way, the least
+    recently used frame would always remain at the head of the linked-list. So once, the buffer pool became full,
+    if the least recently used policy was being used, we simply look up the first frame in the least recently used linked-list,
+    remove this frame from the linked list and return the buffer at this frame in the bufferpool.
+
+Clock Replacement Policy:
+    This policy was implemented by again solely modifying the BasicBufferMgr.Java page.
+    To implement it, we only needed to add a small integer field to the BasicBufferMgr class, to keep track
+    of which buffer pool frame the clock was pointing to (should remain zero until the buffer pool fills up).
+    From here its relatively simple to understand. If the buffer pool is full, we check the clock pointer value,
+    if this value points to a frame that has a buffer that does not have a block pinned to it , we return that buffer.
+    If it is pinned (and assuming there is some buffer that has a block that is not pinned to it), we keep incrementing the clock
+    pointer (or moving back to the start if we hit the max size of the buffer pool so as to stay in a circle) and find the next
+    available buffer that has a block that is not pinned to it. We continue to keep track of this clock pointer.
+
