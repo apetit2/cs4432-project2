@@ -41,6 +41,7 @@ public class IndexInfo {
       this.tx = tx;
       ti = SimpleDB.mdMgr().getTableInfo(tblname, tx);
       si = SimpleDB.mdMgr().getStatInfo(tblname, ti, tx);
+
    }
    
    /**

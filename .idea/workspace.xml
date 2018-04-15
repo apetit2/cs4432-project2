@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="" />
+    <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" afterPath="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" />
+    </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -12,11 +15,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IndexInfo.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexInfo.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="612">
-              <caret line="60" column="51" lean-forward="false" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+            <state relative-caret-position="51">
+              <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
               <folding />
             </state>
           </provider>
@@ -86,10 +89,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HashIndex.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HashIndex.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simpledb/index/hash/HashIndex.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
+            <state relative-caret-position="-765">
               <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
               <folding />
             </state>
@@ -163,10 +166,10 @@
         <option value="$PROJECT_DIR$/src/simpledb/index/Index.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/typeindex/TypeIndex.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/TypeIndex.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/ExtensibleHashIndex.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" />
       </list>
     </option>
   </component>
@@ -601,7 +604,7 @@
       <workItem from="1523312828370" duration="3189000" />
       <workItem from="1523566000844" duration="2615000" />
       <workItem from="1523654533462" duration="38000" />
-      <workItem from="1523813328097" duration="572000" />
+      <workItem from="1523813328097" duration="1312000" />
     </task>
     <servers />
   </component>
@@ -638,7 +641,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="88508000" />
+    <option name="totallyTimeSpent" value="89248000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1723" height="976" extended-state="6" />
@@ -1020,14 +1023,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/index/hash/HashIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -1082,8 +1077,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="612">
-          <caret line="60" column="51" lean-forward="false" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+        <state relative-caret-position="51">
+          <caret line="42" column="37" lean-forward="true" selection-start-line="42" selection-start-column="37" selection-end-line="42" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/index/hash/HashIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-765">
+          <caret line="27" column="21" lean-forward="false" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="21" />
           <folding />
         </state>
       </provider>
