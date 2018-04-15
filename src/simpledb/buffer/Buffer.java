@@ -14,6 +14,8 @@ import simpledb.file.*;
  * @author Edward Sciore
  */
 public class Buffer {
+   //=====================================CS4432-Project1=====================
+   //added a framenumber parameter for ease, it also doubles as ID value
    private int frameNumber = -1;
    private Page contents = new Page();
    private Block blk = null;
@@ -189,11 +191,32 @@ public class Buffer {
       pins = 0;
    }
 
-   int getFrameNumber() {
+   //=====================================CS4432-Project1=====================
+
+   /**
+    *
+    * @return the frame number of the buffer (this doubles as the buffer id)
+    */
+   int getFrameNumber(){
       return frameNumber;
    }
 
+   //=====================================CS4432-Project1=====================
+   /**
+    * Sets the frame number of a buffer (this doubles as a buffer id) based upon the given integer
+    * @param frameNumber
+    */
    void setFrameNumber(int frameNumber){
       this.frameNumber = frameNumber;
+   }
+
+   //=====================================CS4432-Project1=====================
+   /**
+    * Returns a buffer in string format
+    * @return String of buffer key information
+    */
+   @Override
+   public String toString () {
+      return "{Buffer ID: " + this.frameNumber + " Block: " + this.blk + " Pinned: " + isPinned() + "}";
    }
 }

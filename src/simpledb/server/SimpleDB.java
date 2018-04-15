@@ -12,10 +12,10 @@ import simpledb.index.planner.IndexUpdatePlanner;
 /**
  * The class that provides system-wide static global values.
  * These values must be initialized by the method
- * {@link #init(String) init} before use.
+ * {@link #init(String, String) init} before use.
  * The methods {@link #initFileMgr(String) initFileMgr},
  * {@link #initFileAndLogMgr(String) initFileAndLogMgr},
- * {@link #initFileLogAndBufferMgr(String) initFileLogAndBufferMgr},
+ * {@link #initFileLogAndBufferMgr(String, String) initFileLogAndBufferMgr},
  * and {@link #initMetadataMgr(boolean, Transaction) initMetadataMgr}
  * provide limited initialization, and are useful for 
  * debugging purposes.
@@ -35,8 +35,11 @@ public class SimpleDB {
     * Initializes the system.
     * This method is called during system startup.
     * @param dirname the name of the database directory
+    * @param replacementPolicy the replacement policy we should use
     */
    public static void init(String dirname, String replacementPolicy) {
+      //===============================CS4432========================
+      //modified for second program argument
       initFileLogAndBufferMgr(dirname, replacementPolicy);
       Transaction tx = new Transaction();
       boolean isnew = fm.isNew();
@@ -74,9 +77,12 @@ public class SimpleDB {
    /**
     * Initializes the file, log, and buffer managers.
     * @param dirname the name of the database directory
+    * @param replacementPolicy the replacement policy we should use
     */
    public static void initFileLogAndBufferMgr(String dirname, String replacementPolicy) {
       initFileAndLogMgr(dirname);
+      //===============================CS4432========================
+      //modified for second program argument
       bm = new BufferMgr(BUFFER_SIZE, replacementPolicy);
    }
    

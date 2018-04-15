@@ -34,6 +34,7 @@ public class BufferMgr {
     * {@link simpledb.server.SimpleDB#initFileAndLogMgr(String)} or
     * is called first.
     * @param numbuffers the number of buffer slots to allocate
+    * @param replacementPolicy the replacement policy we should use
     */
    public BufferMgr(int numbuffers, String replacementPolicy) {
       bufferMgr = new BasicBufferMgr(numbuffers, replacementPolicy);
@@ -120,5 +121,15 @@ public class BufferMgr {
    
    private boolean waitingTooLong(long starttime) {
       return System.currentTimeMillis() - starttime > MAX_TIME;
+   }
+
+   /**
+    * Returns the buffer pool in string format
+    * @return string formatted buffer pool
+    */
+   //=====================================CS4432-Project1=====================
+   @Override
+   public String toString(){
+      return bufferMgr.toString();
    }
 }

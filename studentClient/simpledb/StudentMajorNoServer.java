@@ -15,7 +15,7 @@ public class StudentMajorNoServer {
 	public static void main(String[] args) {
 		try {
 			// analogous to the driver
-			SimpleDB.init("studentdb");
+			SimpleDB.init("studentdb", "LRU");
 			
 			// analogous to the connection
 			Transaction tx = new Transaction();
