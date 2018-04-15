@@ -38,6 +38,8 @@ public class SimpleDB {
     * @param replacementPolicy the replacement policy we should use
     */
    public static void init(String dirname, String replacementPolicy) {
+      //===============================CS4432========================
+      //modified for second program argument
       initFileLogAndBufferMgr(dirname, replacementPolicy);
       Transaction tx = new Transaction();
       boolean isnew = fm.isNew();
@@ -79,6 +81,8 @@ public class SimpleDB {
     */
    public static void initFileLogAndBufferMgr(String dirname, String replacementPolicy) {
       initFileAndLogMgr(dirname);
+      //===============================CS4432========================
+      //modified for second program argument
       bm = new BufferMgr(BUFFER_SIZE, replacementPolicy);
    }
    

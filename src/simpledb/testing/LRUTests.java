@@ -15,13 +15,13 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Arrays;
 
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 //=================================CS4432-Project1================
-public class ClockPolicyTests {
+public class LRUTests {
 
     @Test
-    public void clockPolicyTest() throws RemoteException {
+    public void lruPolicyTests() throws RemoteException {
 
         Connection conn = null;
         try {
@@ -36,27 +36,23 @@ public class ClockPolicyTests {
 
             stmt.executeUpdate(s);
 
-            SimpleDB.initFileLogAndBufferMgr("ClockTestDB", "CLOCK");
+            SimpleDB.initFileLogAndBufferMgr("lruDB", "LRU");
 
             //get the buffer manager
             BufferMgr bm = SimpleDB.bufferMgr();
-
-            //initialize some blocks to add to the buffer-pool to test the clock policy
             Block block1 = new Block("cars.tbl", 0);
             Block block2 = new Block("cars.tbl", 1);
             Block block3 = new Block("cars.tbl", 2);
             Block block4 = new Block("cars.tbl", 3);
             Block block5 = new Block("cars.tbl", 4);
-            Block block6 = new Block("cars.tb1", 5);
+            Block block6 = new Block("cars.tbl", 5);
             Block block7 = new Block("cars.tbl", 6);
             Block block8 = new Block("cars.tbl", 7);
             Block block9 = new Block("cars.tbl", 8);
             Block block10 = new Block("cars.tbl", 9);
             Block block11 = new Block("cars.tbl", 10);
-            Block block12 = new Block("cars.tbl", 11);
-            Block block13 = new Block("cars.tbl", 12);
 
-            //Fill the bufferpool
+            //pin the blocks to fill the buffer
             Buffer buff1 = bm.pin(block1);
             Buffer buff2 = bm.pin(block2);
             Buffer buff3 = bm.pin(block3);
@@ -66,17 +62,17 @@ public class ClockPolicyTests {
             Buffer buff7 = bm.pin(block7);
             Buffer buff8 = bm.pin(block8);
 
-            //unpin some of the buffers
+            //unpin a few of them to test the policy
             bm.unpin(buff2);
             bm.unpin(buff5);
             bm.unpin(buff7);
 
             System.out.println(bm.toString());
 
-            //should have a three buffers available
+            //ensure that the bufferpool has three available buffers
             assertEquals(3, bm.available());
 
-            //pin another bin to overfill the bufferpool
+            //try to add another buff
             Buffer buff9 = bm.pin(block9);
             System.out.println(bm.toString());
 
@@ -93,32 +89,32 @@ public class ClockPolicyTests {
 
             assertEquals(Arrays.toString(expectedBufferPool), bm.toString());
 
-            //continue to check if clock policy was correct
+            //if we pin and unpin buffer 5 it should no longer be the least recently used, so we
+            //should move onto the least recently used buffer which would be buffer 7
+            bm.pin(block5);
+            System.out.println(bm.toString());
+            bm.unpin(buff5);
+            System.out.println(bm.toString());
+
             Buffer buff10 = bm.pin(block10);
             System.out.println(bm.toString());
 
-            expectedBufferPool[4] = buff10;
+            expectedBufferPool[6] = buff10;
 
             assertEquals(Arrays.toString(expectedBufferPool), bm.toString());
 
-            //continue to check correctness
-            Buffer buff11 = bm.pin(block11);
-            System.out.println(bm.toString());
-
-            expectedBufferPool[6] = buff11;
-
-            assertEquals(Arrays.toString(expectedBufferPool), bm.toString());
-
-            //make sure it rotates back to the start of the buffer at the end
+            //if we unpin another frame however, 5 will be the least recently used, so we should use that one
             bm.unpin(buff1);
             System.out.println(bm.toString());
 
-            Buffer buff12 = bm.pin(block12);
+            Buffer buff11 = bm.pin(block11);
             System.out.println(bm.toString());
 
-            expectedBufferPool[0] = buff12;
+            expectedBufferPool[4] = buff11;
+
             assertEquals(Arrays.toString(expectedBufferPool), bm.toString());
-        } catch (SQLException e){
+
+        } catch (SQLException e) {
             e.printStackTrace();
         } finally {
             //close the connection to the database

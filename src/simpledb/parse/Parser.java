@@ -232,6 +232,8 @@ public class Parser {
 //  Method for parsing create index commands
    
    public CreateIndexData createIndex() {
+      lex.eatKeyword("create");
+      String idxType = lex.eatId();
       lex.eatKeyword("index");
       String idxname = lex.eatId();
       lex.eatKeyword("on");
@@ -239,7 +241,7 @@ public class Parser {
       lex.eatDelim('(');
       String fldname = field();
       lex.eatDelim(')');
-      return new CreateIndexData(idxname, tblname, fldname);
+      return new CreateIndexData(idxType, idxname, tblname, fldname);
    }
 }
 

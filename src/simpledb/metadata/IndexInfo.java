@@ -2,6 +2,8 @@ package simpledb.metadata;
 
 import static java.sql.Types.INTEGER;
 import static simpledb.file.Page.BLOCK_SIZE;
+
+import simpledb.index.extensiblehash.GlobalIndex;
 import simpledb.server.SimpleDB;
 import simpledb.tx.Transaction;
 import simpledb.record.*;
@@ -19,7 +21,7 @@ import simpledb.index.btree.BTreeIndex; //in case we change to btree indexing
  * @author Edward Sciore
  */
 public class IndexInfo {
-   private String idxname, fldname;
+   private String idxtype, idxname, fldname;
    private Transaction tx;
    private TableInfo ti;
    private StatInfo si;
@@ -31,8 +33,9 @@ public class IndexInfo {
     * @param fldname the name of the indexed field
     * @param tx the calling transaction
     */
-   public IndexInfo(String idxname, String tblname, String fldname,
+   public IndexInfo(String idxtype, String idxname, String tblname, String fldname,
                     Transaction tx) {
+      this.idxtype = idxtype;
       this.idxname = idxname;
       this.fldname = fldname;
       this.tx = tx;
@@ -47,7 +50,16 @@ public class IndexInfo {
    public Index open() {
       Schema sch = schema();
       // Create new HashIndex for hash indexing
-      return new HashIndex(idxname, sch, tx);
+      switch(idxtype){
+         case "sh":
+            return new HashIndex(idxname, sch, tx);
+         case "bt":
+            return new BTreeIndex(idxname, sch, tx);
+         case "eh":
+            return new GlobalIndex(idxname, sch, tx);
+         default: //this should not get here -- but in case it does, we'll just return static tree
+            return new HashIndex(idxname, sch, tx);
+      }
    }
    
    /**

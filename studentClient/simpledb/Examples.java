@@ -1,8 +1,14 @@
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
 import java.sql.*;
+import java.util.Arrays;
+
 import simpledb.remote.SimpleDriver;
+import simpledb.server.SimpleDB;
 
 public class Examples {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         //=====================================CS4432-Project1=====================
 
         //set up a new connection to the database
@@ -31,6 +37,8 @@ public class Examples {
                 stmt.executeUpdate(s + carVals[i]);
             }
             System.out.println("CARS records inserted");
+
+            System.out.println(SimpleDB.bufferMgr().toString());
 
             //check to see if the insertions did execute
             s = "select CModel from CARS";

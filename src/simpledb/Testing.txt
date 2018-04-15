@@ -1,0 +1,84 @@
+Testing Clock Policy:
+
+Testing for clock policy was done using JUnit -- the file can be found in the directory
+simpledb/testing/ClockPolicyTests.java. But for the purpose of explaining why this shows that
+the clock replacement policy works, the following paragraphs will show the buffer after a pin
+or unpin step while using the clock policy.
+
+So in ClockPolicyTests, we build a new buffer for a Cars Table. This buffer is initially empty,
+but we populate it using the pin function on the buffer manager fully before checking to see if the
+clock policy works. We then unpin three blocks from their buffer (for simplicity, we unpinned
+block 2 from buffer 2, block 5 from buffer 5, and block 7 from buffer 7). As a result, the buffer
+initially looks like the following:
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 1] Pinned: false}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Since we have only just filled the buffer, the clock frame pointer should be pointed to the first frame in the buffer
+pool. This would mean that this frame would be open to replacement next, if the block is not pinned to the buffer.
+However, the block is pinned so we can't remove this block from that buffer! So we look at the next frame in the bufferpool
+(the one that holds the buffer with buffer id 1). We notice that the block is not pinned, so this should be block that gets
+replaced. This indeed happens as showed in the print statement below.
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Notice that the buffer with buffer id 1 (the buffer in the second frame) now has block 8 pinned to it. Having replaced this block, the clock frame pointer should be looking at the 3rd
+block in the bufferpool (Buffer with buffer id 2). Now we want to pin another new block, so we check to see if the buffer in the 3rd frame is
+pinned -- it is, so we move on, until we find that the block in the fifth frame is not pinned to its buffer. This should be the next one up
+for replacement. As shown in the print statement below it is indeed the one replaced.
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Notice that the buffer with buffer id 4 (the buffer in the fifth frame) now has block 9 pinned to it. Having replaced this block, the clock frame pointer should be looking at the 6rh
+frame in the bufferpool (Buffer with buffer id 5). Now we want to pin another new block, so we look at the next frame and see if its pinned until we locate the next available buffer.
+We should find that it is frame 7 in the bufferpool. With this, we again pin the new block to this frame spot. This again happens as expected.
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 10] Pinned: true}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Now we want to make sure the buffer pointer rotates back to the zeroth frame correctly. So we unpin the buffer in frame 0 of the buffer pool, resulting
+in the following bufferpool.
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: false}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 10] Pinned: true}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+As you can see, the block in the first frame is no longer pinned (has a pinned status of false)). So now when we pin a new block, it should pin to this frame.
+And again this happens as shown below.
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 11] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 5 Block: [file cars.tb1, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 10] Pinned: true}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+
+Testing LRU Policy:
+
+Testing for the LRU replacement policy was done using JUnit -- the file can be found in the directory
+simpledb/testing/LRUTests.java. But for the purpose of explaining why this shows that the least recently used policy
+works as desired we will give an in-depth description below.
+
+To make sure the policy worked, we needed to pin and unpin a bunch of blocks to a buffer. In the JUnit File outlined above,
+it can be seen that the buffer initially starts out as empty, but then we add blocks for the cars table that was created by
+pinning them in and out of the bufferpool. To begin we pin blocks 0 through 7 for the cars.tbl to the bufferpool so that the buffer
+is initially full and ready to undergo LRU. To make sure LRU works correctly, we need to have a few unpinned spots, so, as such,
+we unpin blocks 2,5, and 7 from there respective buffers. At this stage, the buffer looks like this:
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 1] Pinned: false}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+In the above bufferpool, we have least recently touched frame 2, then frame 5, then frame 7 of the frames we can actually replace. With this knowledge,
+we know that when we pin a new block it should replace the block in frame 2. This indeed happens, as shown below:
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+
+We then want to shake things up a bit. So we decided to re-pin block 5 to its frame and subsequently unpin it again so that it
+should theoretically no longer be the least recently used (and actually the most recently used). This resulted in the below bufferpools:
+
+Frame 5 gets pinned again
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: true}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Frame 5 gets unpinned again
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 6] Pinned: false}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+By doing this, we now think that frame 7 should be the least recently used, and if we pin another block, the block in frame 7 should
+be replaced. Again this happens as shown below:
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: true}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 4] Pinned: false}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]
+
+Now just for giggles we check to see if we pin another block, it will pin to the block in frame 5 (the last availabel frame) -- it does:
+
+[{Buffer ID: 0 Block: [file cars.tbl, block 0] Pinned: false}, {Buffer ID: 1 Block: [file cars.tbl, block 8] Pinned: true}, {Buffer ID: 2 Block: [file cars.tbl, block 2] Pinned: true}, {Buffer ID: 3 Block: [file cars.tbl, block 3] Pinned: true}, {Buffer ID: 4 Block: [file cars.tbl, block 10] Pinned: true}, {Buffer ID: 5 Block: [file cars.tbl, block 5] Pinned: true}, {Buffer ID: 6 Block: [file cars.tbl, block 9] Pinned: true}, {Buffer ID: 7 Block: [file cars.tbl, block 7] Pinned: true}]

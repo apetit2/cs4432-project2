@@ -9,7 +9,8 @@ import java.util.*;
  * @author Edward Sciore
  *
  */
-class BasicBufferMgr {
+//made public to unit test -- only reason, otherwise things get a little bit annoying
+public class BasicBufferMgr {
    //=====================================CS4432-Project1=====================
    //the buffer pool -- contains all buffers
    private Buffer[] bufferpool;
@@ -44,7 +45,8 @@ class BasicBufferMgr {
     * @param numbuffs the number of buffer slots to allocate
     * @param policy the replacement policy we should be using
     */
-   BasicBufferMgr(int numbuffs, String policy) {
+   //made public to unit test -- only reason, otherwise things get a little bit annoying
+   public BasicBufferMgr(int numbuffs, String policy) {
       //=====================================CS4432-Project1=====================
       //initialize all values found above
       bufferpool = new Buffer[numbuffs];
@@ -86,7 +88,7 @@ class BasicBufferMgr {
     * @param blk a reference to a disk block
     * @return the pinned buffer
     */
-   synchronized Buffer pin(Block blk) {
+   public synchronized Buffer pin(Block blk) {
       //=====================================CS4432-Project1=====================
       Buffer buff = findExistingBuffer(blk);
       if (buff == null) {
@@ -124,7 +126,7 @@ class BasicBufferMgr {
     * @param fmtr a pageformatter object, used to format the new block
     * @return the pinned buffer
     */
-   synchronized Buffer pinNew(String filename, PageFormatter fmtr) {
+   public synchronized Buffer pinNew(String filename, PageFormatter fmtr) {
       //=====================================CS4432-Project1=====================
       //get an empty buffer or buffer that is okay for replacement
       Buffer buff = chooseUnpinnedBuffer();
@@ -144,7 +146,7 @@ class BasicBufferMgr {
     * Unpins the specified buffer.
     * @param buff the buffer to be unpinned
     */
-   synchronized void unpin(Buffer buff) {
+   public synchronized void unpin(Buffer buff) {
       //=====================================CS4432-Project1=====================
       buff.unpin();
       if (!buff.isPinned()) {
@@ -162,7 +164,7 @@ class BasicBufferMgr {
     * Returns the number of available (i.e. unpinned) buffers.
     * @return the number of available buffers
     */
-   int available() {
+   public int available() {
       return numAvailable;
    }
 
