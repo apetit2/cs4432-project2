@@ -58,7 +58,7 @@ public class IndexInfo {
             return new BTreeIndex(idxname, sch, tx);
          case "eh":
             return new GlobalIndex(idxname, sch, tx);
-         default: //this should not get here -- but in case it does, we'll just return static tree
+         default: //this should not get here -- but in case it does, we'll just do a static hash
             return new HashIndex(idxname, sch, tx);
       }
    }
