@@ -10,6 +10,7 @@ import simpledb.tx.Transaction;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GlobalIndex implements Index {
@@ -20,6 +21,7 @@ public class GlobalIndex implements Index {
     private Constant searchKey = null;
     private TableScan ts = null;
     private int globalDepth;
+    private List<LocalIndex> localIndices;
 
     /**
      * Constructor
@@ -32,11 +34,18 @@ public class GlobalIndex implements Index {
         this.globalSchema.addStringField("LocalIndex", 25); //for the purposes of this class - I highly doubt we would need to go above 2^25 possible combinations
         this.globalSchema.addIntField("LocalDepth");
         this.tx = tx;
+        this.localIndices = new LinkedList<>();
 
         //the first entry in the global index should be zero in binary
         String zeroInBinary = Integer.toBinaryString(0);
         //the second entry in the global index should be one in binary
         String oneInBinary = Integer.toBinaryString(1);
+
+        LocalIndex localIndex = new LocalIndex(idxname, sch, tx);
+
+        //add two new local indices to the list
+        localIndices.add(localIndex);
+        localIndices.add(localIndex);
 
         globalDepth = 1; //the initial depth should only be 1
 
@@ -103,6 +112,35 @@ public class GlobalIndex implements Index {
 
         //how we insert into the global index
 
+        //first get us where we should insert into the global index
+        beforeFirst(dataval);
+
+        //what index is our LocalIndex at?
+        int index = -1;
+
+        //realistically, this should only execute once
+        while(ts.next()){
+            index = Integer.parseInt(ts.getString("LocalIndex"), 2);
+        }
+
+        //THIS SHOULD NEVER EXECUTE
+        //IF WE DO, just break out
+        if (index == -1){
+            return;
+        }
+
+        LocalIndex localIndex = localIndices.get(index); // get the local index we're at, and insert if we have room
+        if (localIndex.isFull()) {
+            //we need to split the local index up to accommodate the excess records
+
+            //for now just let us know we got here and quit
+            System.out.println("We got to step where we need to split");
+
+        } else {
+            //no need to split, we can simply insert into this local index
+            localIndex.insert(dataval, datarid);
+            localIndex.incrementSize();
+        }
     }
 
     @Override
@@ -123,6 +161,7 @@ public class GlobalIndex implements Index {
     public String toString() {
         //just print out the current table scan
         //that helps enough
+        //not really sure how to print out the entire schema :/
 
         List<String> records = new ArrayList<>();
 
@@ -133,5 +172,13 @@ public class GlobalIndex implements Index {
         }
 
         return Arrays.toString(records.toArray());
+    }
+
+    public void setGlobalDepth(int depth){
+        this.globalDepth = depth;
+    }
+
+    public int getGlobalDepth(){
+        return this.globalDepth;
     }
 }
