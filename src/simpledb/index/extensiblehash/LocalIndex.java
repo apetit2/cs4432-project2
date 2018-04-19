@@ -105,16 +105,26 @@ public class LocalIndex implements Index {
 
     }
 
-    public String toString() {
+    public String toString(List<Constant> dataVals) {
         //just print out the current table scan
         //that helps enough
         //not really sure how to print out the entire schema :/
 
-        List<String> records = new ArrayList<>();
+        List<String> records = new LinkedList<>();
 
-        while(ts.next()) {
-            records.add("{Block: " + ts.getInt("block")
-                    + ", ID: " + ts.getInt("id") + "}");
+        for(Constant searchKey : dataVals){
+            close();
+            this.searchKey = searchKey;
+            String binaryFormat = Integer.toBinaryString(searchKey.hashCode());
+            String tblname = idxName + binaryFormat;
+
+            TableInfo ti = new TableInfo(tblname, sch);
+            ts = new TableScan(ti, tx);
+
+            while(ts.next()) {
+                records.add("{Block: " + ts.getInt("block")
+                        + ", ID: " + ts.getInt("id") + "}");
+            }
         }
 
         return Arrays.toString(records.toArray());

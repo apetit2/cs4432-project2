@@ -225,17 +225,20 @@ public class GlobalIndex implements Index {
     @Override
     public String toString() {
         List<String> records = new ArrayList<>();
-        for (int i = 0; i <= (int) Math.pow(2, globalDepth); i++){
+        for (int i = 0; i < (int) Math.pow(2, globalDepth); i++){
             close();
             String binary = Integer.toBinaryString(i);
 
             TableInfo ti = new TableInfo(binary, globalSchema);
             ts = new TableScan(ti, tx);
 
+            List<Constant> dataVals = localIndices.get(i).getSearchKeys();
+
             while(ts.next()){
                 records.add("{GlobalIndex: " + ts.getString("GlobalIndex")
                         + ", LocalIndex: " + ts.getString("LocalIndex")
-                        + ", LocalDepth: " + ts.getInt("LocalDepth") + "}");
+                        + ", LocalDepth: " + ts.getInt("LocalDepth") + "}"
+                        + ", ArrayValues: " + localIndices.get(i).toString(dataVals));
             }
         }
 
