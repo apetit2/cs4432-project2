@@ -51,13 +51,27 @@ public class GlobalIndexTests {
         RID rid1 = new RID(0, 0);
         gIndex.insert(constant, rid1);
 
+        System.out.println(gIndex.toString());
+
         constant = new IntConstant(14);
         RID rid2 = new RID(1, 1);
         gIndex.insert(constant, rid2);
 
+        System.out.println(gIndex.toString());
+
+        //can't insert this yet...
         constant = new IntConstant(16);
         RID rid3 = new RID(2, 2 );
         gIndex.insert(constant, rid3);
+
+        System.out.println(gIndex.toString());
+
+        //but we should still be able to insert in the other bucket
+        constant = new IntConstant(11);
+        RID rid4 = new RID(3, 3);
+        gIndex.insert(constant, rid4);
+
+        System.out.println(gIndex.toString());
 
     }
 }

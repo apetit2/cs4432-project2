@@ -8,15 +8,21 @@ import simpledb.record.Schema;
 import simpledb.record.TableInfo;
 import simpledb.tx.Transaction;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.List;
+
 public class LocalIndex implements Index {
     private String idxName;
     private Schema sch;
     private Transaction tx;
     private Constant searchKey = null;
     private TableScan ts = null;
-    private int locakDepth;
     final static int MAX_SIZE = 2;
     private int size = 0;
+    private List<Constant> searchKeys = new LinkedList<>();
+    private List<RID> ridValues = new LinkedList<>();
 
     public LocalIndex(String idxName, Schema sch, Transaction tx){
         this.idxName = idxName;
@@ -30,6 +36,9 @@ public class LocalIndex implements Index {
         this.searchKey = searchkey;
         String binaryFormat = Integer.toBinaryString(searchkey.hashCode());
         String tblname = idxName + binaryFormat;
+
+        searchKeys.add(searchkey);
+
         TableInfo ti = new TableInfo(tblname, sch);
         ts = new TableScan(ti, tx);
     }
@@ -41,26 +50,38 @@ public class LocalIndex implements Index {
 
     @Override
     public RID getDataRid() {
-        return null;
+        int blknum = ts.getInt("block");
+        int id = ts.getInt("id");
+        return new RID(blknum, id);
     }
 
     @Override
-    public void insert(Constant val, RID rid) {
-        beforeFirst(val);
+    public void insert(Constant constant, RID rid) {
+        beforeFirst(constant);
+
+        ridValues.add(rid);
+
         ts.insert();
         ts.setInt("block", rid.blockNumber());
         ts.setInt("id", rid.id());
-        ts.setVal("dataval", val);
+        ts.setVal("dataval", constant);
     }
 
     @Override
     public void delete(Constant dataval, RID datarid) {
-
+        beforeFirst(dataval);
+        while(next())
+            if (getDataRid().equals(datarid)) {
+                ts.delete();
+                return;
+            }
     }
 
     @Override
     public void close() {
-
+        if (ts != null){
+            ts.close();
+        }
     }
 
     /**
@@ -76,6 +97,56 @@ public class LocalIndex implements Index {
 
     public void incrementSize(){
         this.size++;
+    }
+
+    public void setTs(String tblName){
+        TableInfo ti = new TableInfo(tblName, sch);
+        this.ts = new TableScan(ti, tx);
+
+    }
+
+    public String toString() {
+        //just print out the current table scan
+        //that helps enough
+        //not really sure how to print out the entire schema :/
+
+        List<String> records = new ArrayList<>();
+
+        while(ts.next()) {
+            records.add("{Block: " + ts.getInt("block")
+                    + ", ID: " + ts.getInt("id") + "}");
+        }
+
+        return Arrays.toString(records.toArray());
+    }
+
+    public List<Constant> getSearchKeys(){
+        return this.searchKeys;
+    }
+
+    public List<RID> getRidValues(){
+        return this.ridValues;
+    }
+
+    public void clearLists() {
+        this.searchKeys.clear();
+        this.ridValues.clear();
+    }
+
+    public void mergeDelete(Constant searchKey, RID rid){
+        close();
+        this.searchKey = searchKey;
+        String binaryFormat = Integer.toBinaryString(searchKey.hashCode());
+        String tblname = idxName + binaryFormat;
+
+        TableInfo ti = new TableInfo(tblname, sch);
+        ts = new TableScan(ti, tx);
+
+        while(next())
+            if (getDataRid().equals(rid)) {
+                ts.delete();
+                return;
+            }
     }
 
 }
