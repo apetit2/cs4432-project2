@@ -170,7 +170,6 @@ public class LocalIndex implements Index {
 
         while(next())
             if (getDataRid().equals(rid)) {
-                System.out.println("got here");
                 ts.delete();
 
                 return;
