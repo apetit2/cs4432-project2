@@ -77,6 +77,8 @@ public class GlobalIndex implements Index {
         //this will be used for the key
         String binaryFormat = Integer.toBinaryString(searchkey.hashCode());
 
+        System.out.println(binaryFormat);
+
         //System.out.println(binaryFormat);
         //use the global depth to determine what we should table-scan for...
         //check to make sure the string is actually of a length where we can substring
@@ -87,6 +89,24 @@ public class GlobalIndex implements Index {
         if (binaryFormat.length() >= globalDepth) {
             whatToScanFor = binaryFormat.substring(binaryFormat.length() - globalDepth);
         }
+
+        char[] digits = whatToScanFor.toCharArray();
+        System.out.println("here");
+        System.out.println(digits);
+
+        if (digits[0] == '0'){
+            System.out.println("here");
+            for (int i = 0; i < digits.length - 1; i++){
+                if(digits[i] == '1'){
+                    break;
+                } else {
+                    whatToScanFor = whatToScanFor.substring(1);
+                }
+            }
+        }
+
+        System.out.println("what to scan for");
+        System.out.println(whatToScanFor);
 
         TableInfo ti = new TableInfo(whatToScanFor, globalSchema);
         ts = new TableScan(ti, tx);
@@ -112,7 +132,7 @@ public class GlobalIndex implements Index {
 
     @Override
     public void insert(Constant dataval, RID datarid) {
-
+        System.out.println("insert");
         //how we insert into the global index
 
         //first get us where we should insert into the global index
@@ -125,10 +145,12 @@ public class GlobalIndex implements Index {
         //realistically, this should only execute once
         while(ts.next()){
             index = Integer.parseInt(ts.getString("LocalIndex"), 2);
+
             localSize = ts.getInt("LocalDepth");
 
             //if the index is full, we should up the local depth
             if(localIndices.get(index).isFull()) {
+                System.out.println("full");
                 ts.setInt("LocalDepth", localSize + 1);
                 //System.out.println(ts.getInt("LocalDepth"));
             }
@@ -181,8 +203,8 @@ public class GlobalIndex implements Index {
             }
 
             //copy the values from the local index, delete them, then reinsert
-            List<Constant> searchKeys = localIndices.get(index).getSearchKeys();
-            List<RID> ridValues = localIndices.get(index).getRidValues();
+            List<Constant> searchKeys = new LinkedList<>(localIndices.get(index).getSearchKeys());
+            List<RID> ridValues = new LinkedList<>(localIndices.get(index).getRidValues());
 
             //System.out.println(Arrays.toString(searchKeys.toArray()));
 
@@ -192,8 +214,18 @@ public class GlobalIndex implements Index {
                 localIndices.get(index).mergeDelete(searchKeys.get(i), ridValues.get(i));
 
                 //reinsert into the global table
-                insert(searchKeys.get(i), ridValues.get(i));
+                System.out.println(searchKeys.get(i).hashCode());
+                Constant tempCons = searchKeys.get(i);
+                System.out.println(ridValues.get(i).blockNumber());
+                RID tempRID = ridValues.get(i);
+
+                localIndices.get(index).clearLists();
+
+                insert(tempCons, tempRID);
             }
+
+            //now insert the new value if we can
+            insert(dataval, datarid);
 
         } else {
             //no need to split, we can simply insert into this local index
@@ -201,9 +233,7 @@ public class GlobalIndex implements Index {
             localIndices.get(index).incrementSize();
 
             String tblname = this.idxname + Integer.toBinaryString(dataval.hashCode());
-            //System.out.println(tblname);
-            localIndices.get(index).setTs(tblname);
-            //System.out.println(localIndices.get(index).toString());
+            System.out.println(toString());
 
         }
     }

@@ -45,6 +45,9 @@ public class LocalIndex implements Index {
 
     @Override
     public boolean next() {
+        while (ts.next())
+            if (ts.getVal("dataval").equals(searchKey))
+                return true;
         return false;
     }
 
@@ -105,6 +108,18 @@ public class LocalIndex implements Index {
 
     }
 
+    @Override
+    public String toString(){
+        List<String> records = new LinkedList<>();
+
+        while(ts.next()) {
+            records.add("{Block: " + ts.getInt("block")
+            + ", ID: " + ts.getInt("id") + ")");
+        }
+
+        return Arrays.toString(records.toArray());
+    }
+
     public String toString(List<Constant> dataVals) {
         //just print out the current table scan
         //that helps enough
@@ -139,8 +154,9 @@ public class LocalIndex implements Index {
     }
 
     public void clearLists() {
-        this.searchKeys.clear();
-        this.ridValues.clear();
+        this.searchKeys.remove(0);
+        this.ridValues.remove(0);
+        this.size--;
     }
 
     public void mergeDelete(Constant searchKey, RID rid){
@@ -154,9 +170,13 @@ public class LocalIndex implements Index {
 
         while(next())
             if (getDataRid().equals(rid)) {
+                System.out.println("got here");
                 ts.delete();
+
                 return;
             }
+
+        System.out.println(toString());
     }
 
 }
