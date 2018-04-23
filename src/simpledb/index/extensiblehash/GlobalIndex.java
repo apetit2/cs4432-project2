@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
-import static sun.misc.Version.println;
 
 public class GlobalIndex implements Index {
     private String idxname;
@@ -142,6 +141,7 @@ public class GlobalIndex implements Index {
         int index = -1;
         int localSize = -1;
         String binaryGlobalIndex = "";
+        String binaryLocalIndex = "";
 
         //realistically, this should only execute once
         while(ts.next()){
@@ -151,6 +151,10 @@ public class GlobalIndex implements Index {
             binaryGlobalIndex = ts.getString("GlobalIndex");
             System.out.println("LocalDepth: " + ts.getInt("LocalDepth"));
             localSize = ts.getInt("LocalDepth");
+            System.out.println("LocalIndex: " + ts.getString("LocalIndex"));
+            binaryLocalIndex = ts.getString("LocalIndex");
+
+            System.out.println(ts.getInt("LocalDepth"));
         }
 
         //THIS SHOULD NEVER EXECUTE
@@ -163,11 +167,107 @@ public class GlobalIndex implements Index {
         System.out.println("localindices size: " + localIndices.get(index).isFull());
 
         if (localIndices.get(index).isFull()) {
-            //we need to split the local index up to accommodate the excess records
 
-            //we may need to increment the global index schema
-            //check to see if this is the case...
-            //if(localSize > globalDepth){ //because they are equivalent we need to increment global depth -- since we will need to increment local size -- that's the problem
+            System.out.println("Global depth: " + globalDepth);
+            // we need to determine if we can simply remove and re-add elements
+            if (localSize < globalDepth){
+                System.out.println("localSize: " + localSize);
+
+                for (int i = 0; i < (int) Math.pow(2, globalDepth); i++){
+                    System.out.println("Not corrupt yet");
+                    System.out.println(toString());
+
+                    close();
+                    String inBinaryFormat = Integer.toBinaryString(i);
+                    TableInfo tableInfo = new TableInfo(inBinaryFormat, globalSchema);
+                    TableScan tableScan = new TableScan(tableInfo, tx);
+                    while (tableScan.next()) {
+                        if((tableScan.getString("LocalIndex").equals(binaryLocalIndex)) && !(tableScan.getString("GlobalIndex").equals(binaryLocalIndex))){
+                            LocalIndex localIndex = new LocalIndex(idxname, generalSch, tx);
+                            localIndices.add(localIndex);
+
+                            tableScan.setInt("ArrayIndex", localIndices.size() - 1);
+                            tableScan.setInt("LocalDepth", localSize + 1);
+
+                            String newLocal = binaryGlobalIndex.substring(binaryGlobalIndex.length() - (localSize + 1), binaryGlobalIndex.length());
+                            System.out.println(newLocal);
+                            tableScan.setString("LocalIndex", newLocal);
+                        }
+                    }
+                }
+
+                System.out.println("Not corrupt yet");
+                System.out.println(toString());
+
+                TableInfo tableInfo = new TableInfo(binaryLocalIndex, globalSchema);
+                TableScan tableScan = new TableScan(tableInfo, tx);
+                while (tableScan.next()) {
+                    tableScan.setInt("LocalDepth", localSize + 1);
+                }
+
+                System.out.println("Not corrupt yet");
+                System.out.println(toString());
+
+                //copy the values from the local index, delete them, then reinsert
+                List<Constant> searchKeys = new LinkedList<>(localIndices.get(index).getSearchKeys());
+                System.out.println("search keys: " + searchKeys);
+                List<RID> ridValues = new LinkedList<>(localIndices.get(index).getRidValues());
+
+                System.out.println("RID block values: ");
+                ridValues.forEach(rid->System.out.println(rid.blockNumber()));
+
+                localIndices.get(index).setSize(0);
+
+                System.out.println("Not corrupt yet -- AFTER RID VALUES");
+                System.out.println(toString());
+                //delete the values from the local index
+                for (int i = 0; i <= searchKeys.size() - 1; i++){
+                    //delete from the local index
+                    System.out.println("Not corrupt yet -- BEFORE MERGE DELETE");
+                    System.out.println(toString());
+                    localIndices.get(index).mergeDelete(searchKeys.get(i), ridValues.get(i));
+
+                    System.out.println("Not corrupt yet -- AFTER MERGE DELETE");
+                    System.out.println(toString());
+
+                    //temporary values
+                    Constant tempCons = searchKeys.get(i);
+                    RID tempRID = ridValues.get(i);
+
+                    //remove the item from the index and decrement the size
+                    localIndices.get(index).clearLists();
+
+                    System.out.println("TempCons: " + tempCons);
+
+                    //reinsert into the global table
+                    insert(tempCons, tempRID);
+
+                    System.out.println("got here");
+                }
+
+                TableInfo tinfo = new TableInfo("0", globalSchema);
+                TableScan tscan = new TableScan(tinfo, tx);
+
+                while (tscan.next()) {
+                    System.out.println(tscan.getInt("LocalDepth"));
+                    int i = tscan.getInt("ArrayIndex");
+                    System.out.println(Arrays.toString(localIndices.get(i).getSearchKeys().toArray()));
+                }
+
+                //System.out.println(toString());
+
+                //now insert the new value if we can
+                insert(dataval, datarid);
+
+                return;
+
+            } else {
+                beforeFirst(dataval);
+                while (ts.next()) {
+                    ts.setInt("LocalDepth", localSize + 1);
+                }
+
+                //we need to split the local index up to accommodate the excess records
                 globalDepth++;
 
                 //how many #s we will need is directly correspondent to 2 raised to the new global depth
@@ -231,7 +331,8 @@ public class GlobalIndex implements Index {
 
                     }
                 }
-           // }
+            }
+
 
             //copy the values from the local index, delete them, then reinsert
             List<Constant> searchKeys = new LinkedList<>(localIndices.get(index).getSearchKeys());
@@ -261,25 +362,33 @@ public class GlobalIndex implements Index {
                 insert(tempCons, tempRID);
             }
 
-            while (ts.next()) {
-                System.out.println("aparently we can");
-                if(localIndices.get(index).isFull()) {
-                    ts.setInt("LocalDepth", globalDepth);
-                }
-            }
-
             //now insert the new value if we can
             insert(dataval, datarid);
 
         } else {
+            System.out.println("NOT CORRUPT --- JUST BEFORE INSERT OF 11: ");
+            System.out.println(toString());
             //no need to split, we can simply insert into this local index
+            System.out.println(index);
+            System.out.println(localIndices.get(index).isFull());
+
+            System.out.println("SEARCH KEYS: ");
+            System.out.println(localIndices.get(index).getSearchKeys());
+
+            System.out.println("DATAVAL: " + dataval);
+            System.out.println("DATARID: " + datarid);
+
+
+            System.out.println(toString());
+
             localIndices.get(index).insert(dataval, datarid);
+
+            System.out.println("NOT CORRUPT --- JUST AFTER INSERT OF 11: ");
+            System.out.println(toString());
+
+            System.out.println(localIndices.get(index).getSearchKeys());
             localIndices.get(index).incrementSize();
         }
-    }
-
-    public void insertHelper(){
-
     }
 
     @Override
@@ -292,6 +401,7 @@ public class GlobalIndex implements Index {
     @Override
     public void close() {
         if (ts != null){
+            System.out.println("trying to close");
             ts.close();
         }
     }
@@ -299,21 +409,25 @@ public class GlobalIndex implements Index {
     @Override
     public String toString() {
         List<String> records = new ArrayList<>();
-        for (int i = 0; i < (int) Math.pow(2, globalDepth); i++){
-            close();
+        for (int i = 1; i < (int) Math.pow(2, globalDepth); i++){
             String binary = Integer.toBinaryString(i);
 
-            TableInfo ti = new TableInfo(binary, globalSchema);
-            ts = new TableScan(ti, tx);
+            System.out.println(localIndices.get(0).getSearchKeys());
+            System.out.println(localIndices.get(0).getRidValues());
 
-            while(ts.next()){
-                List<Constant> dataVals = localIndices.get(ts.getInt("ArrayIndex")).getSearchKeys();
-                records.add("{GlobalIndex: " + ts.getString("GlobalIndex")
-                        + ", LocalIndex: " + ts.getString("LocalIndex")
-                        + ", LocalDepth: " + ts.getInt("LocalDepth")
-                        + ", ArrayIndex: " + ts.getInt("ArrayIndex") + "}"
-                        + ", ArrayValues: " + localIndices.get(ts.getInt("ArrayIndex")).toString(dataVals) + "}");
+            TableInfo ti = new TableInfo(binary, globalSchema);
+            TableScan topScan = new TableScan(ti, tx);
+
+            while(topScan.next()){
+                List<Constant> dataVals = localIndices.get(topScan.getInt("ArrayIndex")).getSearchKeys();
+                records.add("{GlobalIndex: " + topScan.getString("GlobalIndex")
+                        + ", LocalIndex: " + topScan.getString("LocalIndex")
+                        + ", LocalDepth: " + topScan.getInt("LocalDepth")
+                        + ", ArrayIndex: " + topScan.getInt("ArrayIndex") + "}"
+                        + ", ArrayValues: " + localIndices.get(topScan.getInt("ArrayIndex")).toString(dataVals) + "}");
             }
+
+            topScan.close();
         }
 
         return Arrays.toString(records.toArray());

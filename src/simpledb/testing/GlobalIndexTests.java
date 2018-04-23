@@ -75,5 +75,17 @@ public class GlobalIndexTests {
 
         //missing one thing -- local buckets with depth lower than global need to have more than one global index pointing to them
 
+        constant = new IntConstant(13);
+        RID rid5 = new RID(4, 4);
+        gIndex.insert(constant, rid5);
+
+        System.out.println(gIndex.toString());
+
+        constant = new IntConstant(15);
+        RID rid6 = new RID(5, 5);
+        gIndex.insert(constant, rid6);
+
+        System.out.println(gIndex.toString());
+
     }
 }

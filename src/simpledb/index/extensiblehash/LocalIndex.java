@@ -33,9 +33,20 @@ public class LocalIndex implements Index {
     @Override
     public void beforeFirst(Constant searchkey) {
         close();
+
+        System.out.println(searchkey);
+
         this.searchKey = searchkey;
         String binaryFormat = Integer.toBinaryString(searchkey.hashCode());
+
+        System.out.println("BINARY FORMAT: " + binaryFormat);
+        System.out.println("SIZE: " + size);
+        System.out.println("RIDVALUES: " + ridValues);
+        System.out.println("SEARCHKEYS: " + searchKeys);
+
         String tblname = idxName + binaryFormat;
+
+        System.out.println("TABLE NAME: " + tblname);
 
         searchKeys.add(searchkey);
 
@@ -62,12 +73,19 @@ public class LocalIndex implements Index {
     public void insert(Constant constant, RID rid) {
         beforeFirst(constant);
 
+        System.out.println(ridValues);
+
         ridValues.add(rid);
 
         ts.insert();
+
         ts.setInt("block", rid.blockNumber());
         ts.setInt("id", rid.id());
         ts.setVal("dataval", constant);
+
+        System.out.println(ts.getInt("block"));
+        System.out.println(ts.getInt("id"));
+        System.out.println(ts.getVal("dataval"));
     }
 
     @Override
@@ -153,8 +171,12 @@ public class LocalIndex implements Index {
     public void mergeDelete(Constant searchKey, RID rid){
         close();
         this.searchKey = searchKey;
+
+        System.out.println("SEARCH KEY: " + this.searchKey);
         String binaryFormat = Integer.toBinaryString(searchKey.hashCode());
         String tblname = idxName + binaryFormat;
+        System.out.println("TABLE NAME: " + tblname);
+        System.out.println("RID: " + rid);
 
         TableInfo ti = new TableInfo(tblname, sch);
         ts = new TableScan(ti, tx);
