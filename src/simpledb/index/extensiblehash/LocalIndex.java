@@ -19,7 +19,7 @@ public class LocalIndex implements Index {
     private Transaction tx;
     private Constant searchKey = null;
     private TableScan ts = null;
-    final static int MAX_SIZE = 2;
+    final static int MAX_SIZE = 2; //Max size of the buffer plus 1
     private int size = 0;
     private List<Constant> searchKeys = new LinkedList<>();
     private List<RID> ridValues = new LinkedList<>();
@@ -108,18 +108,6 @@ public class LocalIndex implements Index {
 
     }
 
-    @Override
-    public String toString(){
-        List<String> records = new LinkedList<>();
-
-        while(ts.next()) {
-            records.add("{Block: " + ts.getInt("block")
-            + ", ID: " + ts.getInt("id") + ")");
-        }
-
-        return Arrays.toString(records.toArray());
-    }
-
     public String toString(List<Constant> dataVals) {
         //just print out the current table scan
         //that helps enough
@@ -156,7 +144,10 @@ public class LocalIndex implements Index {
     public void clearLists() {
         this.searchKeys.remove(0);
         this.ridValues.remove(0);
-        this.size--;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void mergeDelete(Constant searchKey, RID rid){

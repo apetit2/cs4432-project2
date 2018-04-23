@@ -73,5 +73,7 @@ public class GlobalIndexTests {
 
         System.out.println(gIndex.toString());
 
+        //missing one thing -- local buckets with depth lower than global need to have more than one global index pointing to them
+
     }
 }
