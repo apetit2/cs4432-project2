@@ -2,13 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/index/extensiblehash/GlobalIndex.class" afterPath="$PROJECT_DIR$/bin/simpledb/index/extensiblehash/GlobalIndex.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/remote/SimpleDriver.class" afterPath="$PROJECT_DIR$/bin/simpledb/remote/SimpleDriver.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/Startup.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/Startup.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/parse/Parser.class" afterPath="$PROJECT_DIR$/bin/simpledb/parse/Parser.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/parse/Parser.java" afterPath="$PROJECT_DIR$/src/simpledb/parse/Parser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/Startup.java" afterPath="$PROJECT_DIR$/src/simpledb/server/Startup.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" afterPath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,6 +38,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="SimpleDB.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="476">
+              <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Page.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/file/Page.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -52,20 +58,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BasicUpdatePlanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/planner/BasicUpdatePlanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="42" column="0" lean-forward="false" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CreateTestTables.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CreateTestTables.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
+            <state relative-caret-position="510">
               <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -178,7 +174,6 @@
         <option value="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" />
         <option value="$PROJECT_DIR$/studentClient/simpledb/Examples.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/hash/HashIndex.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
         <option value="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
@@ -187,6 +182,7 @@
         <option value="$PROJECT_DIR$/src/simpledb/server/Startup.java" />
         <option value="$PROJECT_DIR$/src/simpledb/parse/Parser.java" />
         <option value="$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
       </list>
     </option>
   </component>
@@ -625,7 +621,7 @@
       <workItem from="1524435471596" duration="25625000" />
       <workItem from="1524529187334" duration="7269000" />
       <workItem from="1524608442495" duration="572000" />
-      <workItem from="1524609503605" duration="2858000" />
+      <workItem from="1524609503605" duration="3160000" />
     </task>
     <task id="LOCAL-00001" summary="All but one test case is working for the extensible hash -- essentially there needs to be a way to deal with local indices that are associated with more than one global index, but that should not be too hard to figure out from this...">
       <created>1524444439378</created>
@@ -648,7 +644,21 @@
       <option name="project" value="LOCAL" />
       <updated>1524534755873</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="one issue fixed, another found when doing part 3">
+      <created>1524612436537</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1524612436537</updated>
+    </task>
+    <task id="LOCAL-00005" summary="one issue fixed, another found when doing part 3">
+      <created>1524612462217</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1524612462217</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -684,7 +694,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="174758000" />
+    <option name="totallyTimeSpent" value="175060000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1723" height="976" extended-state="6" />
@@ -729,7 +739,8 @@
     <MESSAGE value="All but one test case is working for the extensible hash -- essentially there needs to be a way to deal with local indices that are associated with more than one global index, but that should not be too hard to figure out from this..." />
     <MESSAGE value="Okay this is working, it needs to be cleaned up a lot, but everything about the extensible-hash seems to work now. One problem, zero seems to corrupt when we insert too much for whatever reason, and I have no idea why..." />
     <MESSAGE value="So apparently there was no real problem except that we were running out of buffers, upped the buffer number and all my tests worked. So insert is good. Added a delete method and also cleaned everything else up in addition." />
-    <option name="LAST_COMMIT_MESSAGE" value="So apparently there was no real problem except that we were running out of buffers, upped the buffer number and all my tests worked. So insert is good. Added a delete method and also cleaned everything else up in addition." />
+    <MESSAGE value="one issue fixed, another found when doing part 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="one issue fixed, another found when doing part 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -890,14 +901,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="25" column="37" lean-forward="false" selection-start-line="25" selection-start-column="37" selection-end-line="25" selection-end-column="37" />
           <folding />
         </state>
       </provider>
@@ -1165,11 +1168,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
+        <state relative-caret-position="510">
           <caret line="99" column="0" lean-forward="false" selection-start-line="99" selection-start-column="0" selection-end-line="99" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="38" lean-forward="false" selection-start-line="35" selection-start-column="38" selection-end-line="35" selection-end-column="38" />
+          <folding />
         </state>
       </provider>
     </entry>
