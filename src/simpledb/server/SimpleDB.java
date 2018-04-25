@@ -12,10 +12,10 @@ import simpledb.index.planner.IndexUpdatePlanner;
 /**
  * The class that provides system-wide static global values.
  * These values must be initialized by the method
- * {@link #init(String, String) init} before use.
+ * {@link #init(String) init} before use.
  * The methods {@link #initFileMgr(String) initFileMgr},
  * {@link #initFileAndLogMgr(String) initFileAndLogMgr},
- * {@link #initFileLogAndBufferMgr(String, String) initFileLogAndBufferMgr},
+ * {@link #initFileLogAndBufferMgr(String) initFileLogAndBufferMgr},
  * and {@link #initMetadataMgr(boolean, Transaction) initMetadataMgr}
  * provide limited initialization, and are useful for 
  * debugging purposes.
@@ -23,7 +23,7 @@ import simpledb.index.planner.IndexUpdatePlanner;
  * @author Edward Sciore
  */
 public class SimpleDB {
-   public static int BUFFER_SIZE = 8;
+   public static int BUFFER_SIZE = 1000;
    public static String LOG_FILE = "simpledb.log";
    
    private static FileMgr     fm;
@@ -35,12 +35,9 @@ public class SimpleDB {
     * Initializes the system.
     * This method is called during system startup.
     * @param dirname the name of the database directory
-    * @param replacementPolicy the replacement policy we should use
     */
-   public static void init(String dirname, String replacementPolicy) {
-      //===============================CS4432========================
-      //modified for second program argument
-      initFileLogAndBufferMgr(dirname, replacementPolicy);
+   public static void init(String dirname) {
+      initFileLogAndBufferMgr(dirname);
       Transaction tx = new Transaction();
       boolean isnew = fm.isNew();
       if (isnew)
@@ -77,13 +74,10 @@ public class SimpleDB {
    /**
     * Initializes the file, log, and buffer managers.
     * @param dirname the name of the database directory
-    * @param replacementPolicy the replacement policy we should use
     */
-   public static void initFileLogAndBufferMgr(String dirname, String replacementPolicy) {
+   public static void initFileLogAndBufferMgr(String dirname) {
       initFileAndLogMgr(dirname);
-      //===============================CS4432========================
-      //modified for second program argument
-      bm = new BufferMgr(BUFFER_SIZE, replacementPolicy);
+      bm = new BufferMgr(BUFFER_SIZE);
    }
    
    /**
@@ -106,7 +100,8 @@ public class SimpleDB {
     * To change how the planner works, modify this method.
     * @return the system's planner for SQL commands
     */public static Planner planner() {
-      QueryPlanner  qplanner = new BasicQueryPlanner();
+//      QueryPlanner  qplanner = new BasicQueryPlanner();
+      QueryPlanner  qplanner = new ExploitSortQueryPlanner();
       UpdatePlanner uplanner = new BasicUpdatePlanner();
       return new Planner(qplanner, uplanner);
    }

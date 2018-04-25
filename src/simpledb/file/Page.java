@@ -116,7 +116,12 @@ public class Page {
     * @return the integer value at that offset
     */
    public synchronized int getInt(int offset) {
-      contents.position(offset);
+      try {
+         contents.position(offset);
+      }
+      catch (Exception e) {
+         e.printStackTrace();
+      }
       int result = 0;
       try {
          result = contents.getInt();

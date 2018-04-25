@@ -9,10 +9,10 @@ import java.util.*;
  * @author Edward Sciore
  */
 public class SortScan implements Scan {
-   private UpdateScan s1, s2=null;
+   protected UpdateScan s1, s2=null;
    protected UpdateScan currentscan = null;
-   private RecordComparator comp;
-   private boolean hasmore1, hasmore2=false;
+   protected RecordComparator comp;
+   protected boolean hasmore1, hasmore2=false;
    private List<RID> savedposition;
    
    /**

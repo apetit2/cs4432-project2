@@ -27,8 +27,9 @@ public class SmartSortPlan extends SortPlan {
     public Scan open() {
         TableScan src = (TableScan) p.open();
         List<TempTable> runs = splitIntoRuns(src);
+        src.close();
         while (runs.size() > 2)
             runs = doAMergeIteration(runs);
-        return new SmartSortScan(runs, comp, src);
+        return new SmartSortScan(runs, comp, (TablePlan) p);
     }
 }
