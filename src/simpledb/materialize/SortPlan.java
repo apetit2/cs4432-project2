@@ -11,11 +11,11 @@ import java.util.*;
  * @author Edward Sciore
  */
 public class SortPlan implements Plan {
-   private Plan p;
+   protected Plan p;
    private Transaction tx;
    private Schema sch;
-   private RecordComparator comp;
-   
+   protected RecordComparator comp;
+
    /**
     * Creates a sort plan for the specified query.
     * @param p the plan for the underlying query
@@ -28,7 +28,7 @@ public class SortPlan implements Plan {
       sch = p.schema();
       comp = new RecordComparator(sortfields);
    }
-   
+
    /**
     * This method is where most of the action is.
     * Up to 2 sorted temporary tables are created,
@@ -43,7 +43,7 @@ public class SortPlan implements Plan {
          runs = doAMergeIteration(runs);
       return new SortScan(runs, comp);
    }
-   
+
    /**
     * Returns the number of blocks in the sorted table,
     * which is the same as it would be in a
@@ -57,7 +57,7 @@ public class SortPlan implements Plan {
       Plan mp = new MaterializePlan(p, tx); // not opened; just for analysis
       return mp.blocksAccessed();
    }
-   
+
    /**
     * Returns the number of records in the sorted table,
     * which is the same as in the underlying query.
@@ -66,7 +66,7 @@ public class SortPlan implements Plan {
    public int recordsOutput() {
       return p.recordsOutput();
    }
-   
+
    /**
     * Returns the number of distinct field values in
     * the sorted table, which is the same as in
@@ -76,7 +76,7 @@ public class SortPlan implements Plan {
    public int distinctValues(String fldname) {
       return p.distinctValues(fldname);
    }
-   
+
    /**
     * Returns the schema of the sorted table, which
     * is the same as in the underlying query.
@@ -85,9 +85,9 @@ public class SortPlan implements Plan {
    public Schema schema() {
       return sch;
    }
-   
-   private List<TempTable> splitIntoRuns(Scan src) {
-      List<TempTable> temps = new ArrayList<TempTable>();
+
+   protected List<TempTable> splitIntoRuns(Scan src) {
+      List<TempTable> temps = new ArrayList<>();
       src.beforeFirst();
       if (!src.next())
          return temps;
@@ -105,9 +105,9 @@ public class SortPlan implements Plan {
       currentscan.close();
       return temps;
    }
-   
-   private List<TempTable> doAMergeIteration(List<TempTable> runs) {
-      List<TempTable> result = new ArrayList<TempTable>();
+
+   protected List<TempTable> doAMergeIteration(List<TempTable> runs) {
+      List<TempTable> result = new ArrayList<>();
       while (runs.size() > 1) {
          TempTable p1 = runs.remove(0);
          TempTable p2 = runs.remove(0);
@@ -117,13 +117,13 @@ public class SortPlan implements Plan {
          result.add(runs.get(0));
       return result;
    }
-   
+
    private TempTable mergeTwoRuns(TempTable p1, TempTable p2) {
       Scan src1 = p1.open();
       Scan src2 = p2.open();
       TempTable result = new TempTable(sch, tx);
       UpdateScan dest = result.open();
-      
+
       boolean hasmore1 = src1.next();
       boolean hasmore2 = src2.next();
       while (hasmore1 && hasmore2)
@@ -131,7 +131,7 @@ public class SortPlan implements Plan {
          hasmore1 = copy(src1, dest);
       else
          hasmore2 = copy(src2, dest);
-      
+
       if (hasmore1)
          while (hasmore1)
          hasmore1 = copy(src1, dest);
@@ -143,7 +143,7 @@ public class SortPlan implements Plan {
       dest.close();
       return result;
    }
-   
+
    private boolean copy(Scan src, UpdateScan dest) {
       dest.insert();
       for (String fldname : sch.fields())

@@ -117,7 +117,15 @@ public class Page {
     */
    public synchronized int getInt(int offset) {
       contents.position(offset);
-      return contents.getInt();
+      int result = 0;
+      try {
+         result = contents.getInt();
+      }
+      catch (Exception e) {
+         e.printStackTrace();
+         int a = 1;
+      }
+      return result;
    }
    
    /**

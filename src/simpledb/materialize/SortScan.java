@@ -8,12 +8,9 @@ import java.util.*;
  * The Scan class for the <i>sort</i> operator.
  * @author Edward Sciore
  */
-/**
- * @author sciore
- *
- */
 public class SortScan implements Scan {
-   private UpdateScan s1, s2=null, currentscan=null;
+   private UpdateScan s1, s2=null;
+   protected UpdateScan currentscan = null;
    private RecordComparator comp;
    private boolean hasmore1, hasmore2=false;
    private List<RID> savedposition;
@@ -34,7 +31,7 @@ public class SortScan implements Scan {
          hasmore2 = s2.next();
       }
    }
-   
+
    /**
     * Positions the scan before the first record in sorted order.
     * Internally, it moves to the first record of each underlying scan.
@@ -66,7 +63,7 @@ public class SortScan implements Scan {
          else if (currentscan == s2)
             hasmore2 = s2.next();
       }
-      
+
       if (!hasmore1 && !hasmore2)
          return false;
       else if (hasmore1 && hasmore2) {

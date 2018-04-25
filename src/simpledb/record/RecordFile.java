@@ -3,6 +3,8 @@ package simpledb.record;
 import simpledb.file.Block;
 import simpledb.tx.Transaction;
 
+import java.util.List;
+
 /**
  * Manages a file of records.
  * There are methods for iterating through the records
@@ -160,5 +162,29 @@ public class RecordFile {
    private void appendBlock() {
       RecordFormatter fmtr = new RecordFormatter(ti);
       tx.append(filename, fmtr);
+   }
+
+   /**
+    * Wrapper for the corresponding method in the contained TableInfo object
+    * @see simpledb.record.TableInfo#getSortedFields
+    */
+   public List<String> getSortedFields() {
+      return ti.getSortedFields();
+   }
+
+   /**
+    * Wrapper for the corresponding method in the contained TableInfo object
+    * @see simpledb.record.TableInfo#setSortedFields
+    */
+   public void setSortedFields(List<String> newSortedFields) {
+      ti.setSortedFields(newSortedFields);
+   }
+
+   /**
+    * Wrapper for the corresponding method in the contained TableInfo object
+    * @see simpledb.record.TableInfo#setUnsorted
+    */
+   public void setUnsorted() {
+      ti.setUnsorted();
    }
 }

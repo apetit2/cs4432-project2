@@ -5,6 +5,8 @@ import simpledb.tx.Transaction;
 import simpledb.metadata.*;
 import simpledb.record.*;
 
+import java.util.List;
+
 /** The Plan class corresponding to a table.
   * @author Edward Sciore
   */

@@ -13,6 +13,7 @@ public class TableInfo {
    private Map<String,Integer> offsets;
    private int recordlen;
    private String tblname;
+   private List<String> sortedFields;
    
    /**
     * Creates a TableInfo object, given a table name
@@ -25,6 +26,7 @@ public class TableInfo {
    public TableInfo(String tblname, Schema schema) {
       this.schema = schema;
       this.tblname = tblname;
+      this.sortedFields = null;
       offsets  = new HashMap<String,Integer>();
       int pos = 0;
       for (String fldname : schema.fields()) {
@@ -93,4 +95,26 @@ public class TableInfo {
       else
          return STR_SIZE(schema.length(fldname));
    }
+
+   /**
+    * @return the fields that table is currently sorted by, or null if unsorted
+    */
+   public List<String> getSortedFields() {
+      return sortedFields;
+   }
+
+   /**
+    * Set the fields by which the table should be sorted by
+    */
+   public void setSortedFields(List<String> newSortedFields) {
+      sortedFields = newSortedFields;
+   }
+
+   /**
+    * Set the status of the table as being unsorted (by any field)
+    */
+   public void setUnsorted() {
+      sortedFields = null;
+   }
+
 }

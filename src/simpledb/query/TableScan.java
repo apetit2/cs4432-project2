@@ -4,6 +4,8 @@ import static java.sql.Types.INTEGER;
 import simpledb.tx.Transaction;
 import simpledb.record.*;
 
+import java.util.Collection;
+
 /**
  * The Scan class corresponding to a table.
  * A table scan is just a wrapper for a RecordFile object;
@@ -28,12 +30,20 @@ public class TableScan implements UpdateScan {
    }
    
    // Scan methods
-   
+   /**
+    * NEW: Uses the recordFile's tableInfo object to market the table as unsorted
+    * @see UpdateScan#beforeFirst()
+    */
    public void beforeFirst() {
       rf.beforeFirst();
    }
-   
+
+   /**
+    * NEW: Uses the recordFile's tableInfo object to market the table as unsorted
+    * @see UpdateScan#next()
+    */
    public boolean next() {
+      rf.setUnsorted();
       return rf.next();
    }
    
@@ -66,6 +76,8 @@ public class TableScan implements UpdateScan {
    public boolean hasField(String fldname) {
       return sch.hasField(fldname);
    }
+
+   public Collection<String> getFields() { return sch.fields(); }
    
    // UpdateScan methods
    
