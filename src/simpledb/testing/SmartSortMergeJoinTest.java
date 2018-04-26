@@ -30,9 +30,9 @@ public class SmartSortMergeJoinTest {
 			// Step 3: loop through the result set
 			System.out.println("field1\tfield2\tfield3");
 			while (rs.next()) {
-				String field1 = rs.getString("field1");
-				String field2 = rs.getString("field2");
-				String field3 = rs.getString("field3");
+				int field1 = rs.getInt("field1");
+				int field2 = rs.getInt("field2");
+				int field3 = rs.getInt("field3");
 				System.out.println(field1 + "\t" + field2 + "\t" + field3);
 			}
 			rs.close();

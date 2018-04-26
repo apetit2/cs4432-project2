@@ -38,8 +38,6 @@ public class Examples {
             }
             System.out.println("CARS records inserted");
 
-            System.out.println(SimpleDB.bufferMgr().toString());
-
             //check to see if the insertions did execute
             s = "select CModel from CARS";
             ResultSet rs = stmt.executeQuery(s);
