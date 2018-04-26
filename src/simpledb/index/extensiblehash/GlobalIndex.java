@@ -8,10 +8,7 @@ import simpledb.record.Schema;
 import simpledb.record.TableInfo;
 import simpledb.tx.Transaction;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 
 public class GlobalIndex implements Index {
@@ -39,8 +36,10 @@ public class GlobalIndex implements Index {
      * @param tx
      */
     public GlobalIndex(String idxname, Schema sch, Transaction tx){
+        //idxname of the table
         this.idxname = idxname;
         this.generalSch = sch; //schema is for local index...
+        //this our created schema for the global index
         this.globalSchema = new Schema();
         this.globalSchema.addIntField("LocalDepth");
         this.globalSchema.addIntField("ArrayIndex");
@@ -154,7 +153,7 @@ public class GlobalIndex implements Index {
 
         //realistically, this should only execute once because we should only have one binary value per spot in the global index
         while(ts.next()){
-            //setting the index value
+            //setting the index value (for use with our linked list of local indices -- which technically count as buckets)
             index = ts.getInt("ArrayIndex");
             //setting the global index binary value
             binaryGlobalIndex = ts.getString("GlobalIndex");
@@ -176,7 +175,7 @@ public class GlobalIndex implements Index {
             // we need to determine if we can simply remove and re-add elements
             if (localSize < globalDepth){
                 //we don't need to insert any new values into the global index,
-                //but we do need to associate a new local index with global index values that point to the same local index
+                //but we do need to associate a new local index (bucket) with global index values that point to the same local index (bucket)
                 for (int i = 0; i < (int) Math.pow(2, globalDepth); i++){
                     //close ts, becuase we need to look up a new value in the schema
                     close();
@@ -208,7 +207,7 @@ public class GlobalIndex implements Index {
                 }
 
             } else {
-                //this is the case where we do need to increment the global depth
+                //this is the case where we do need to increment the global depth and add new values to the global index
 
                 //get our ts value
                 beforeFirst(dataval);
@@ -367,8 +366,8 @@ public class GlobalIndex implements Index {
                 records.add("{GlobalIndex: " + topScan.getString("GlobalIndex")
                         + ", LocalIndex: " + topScan.getString("LocalIndex")
                         + ", LocalDepth: " + topScan.getInt("LocalDepth")
-                        + ", ArrayIndex: " + topScan.getInt("ArrayIndex") + "}"
-                        + ", ArrayValues: " + localIndices.get(topScan.getInt("ArrayIndex")).toString() + "}");
+                        + ", ArrayIndex: " + topScan.getInt("ArrayIndex")
+                        + ", BucketValues: " + localIndices.get(topScan.getInt("ArrayIndex")).toString() + "}");
             }
 
             //close the scan each time

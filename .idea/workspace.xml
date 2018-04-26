@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cfec6ffd-5218-4117-a627-317f4001f0a0" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/index/extensiblehash/GlobalIndex.class" afterPath="$PROJECT_DIR$/bin/simpledb/index/extensiblehash/GlobalIndex.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/testing/GlobalIndexTests.class" afterPath="$PROJECT_DIR$/bin/simpledb/testing/GlobalIndexTests.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" afterPath="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" afterPath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java" afterPath="$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" afterPath="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +23,8 @@
       <file leaf-file-name="GlobalIndexTests.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
+            <state relative-caret-position="-835">
+              <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -31,8 +35,18 @@
       <file leaf-file-name="SimpleDB.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+            <state relative-caret-position="204">
+              <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SortScan.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/materialize/SortScan.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1764">
+              <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -41,11 +55,41 @@
       <file leaf-file-name="CreateTestTables.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="317">
+            <state relative-caret-position="-499">
               <caret line="79" column="61" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GlobalIndex.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="369" column="112" lean-forward="true" selection-start-line="369" selection-start-column="112" selection-end-line="369" selection-end-column="112" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LocalIndex.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simpledb/README.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-51">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -55,26 +99,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-283">
               <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="QueryPlanner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/planner/QueryPlanner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Planner.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/planner/Planner.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="177">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -95,26 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="795">
               <caret line="121" column="38" lean-forward="false" selection-start-line="121" selection-start-column="38" selection-end-line="121" selection-end-column="38" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Parser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/parse/Parser.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Lexer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simpledb/parse/Lexer.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1173">
-              <caret line="80" column="0" lean-forward="false" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -172,16 +176,16 @@
         <option value="$PROJECT_DIR$/src/simpledb/metadata/IndexInfo.java" />
         <option value="$PROJECT_DIR$/studentClient/simpledb/Examples.java" />
         <option value="$PROJECT_DIR$/src/simpledb/index/hash/HashIndex.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
         <option value="$PROJECT_DIR$/src/simpledb/testing/DataGenerator.java" />
         <option value="$PROJECT_DIR$/src/simpledb/remote/SimpleDriver.java" />
         <option value="$PROJECT_DIR$/src/simpledb/server/Startup.java" />
         <option value="$PROJECT_DIR$/src/simpledb/parse/Parser.java" />
         <option value="$PROJECT_DIR$/src/simpledb/file/FileMgr.java" />
-        <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
         <option value="$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" />
+        <option value="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
       </list>
     </option>
   </component>
@@ -238,82 +242,7 @@
               <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="buffer" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="file" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="btree" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="extensiblehash" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="hash" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="planner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="index" type="462c0819:PsiDirectoryNode" />
-              <item name="query" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="opt" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="parse" type="462c0819:PsiDirectoryNode" />
+              <item name="materialize" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
@@ -321,27 +250,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simpledb" type="462c0819:PsiDirectoryNode" />
               <item name="planner" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="remote" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimpleDB_2.10" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simpledb" type="462c0819:PsiDirectoryNode" />
-              <item name="testing" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimpleDB_2.10" type="b2602c69:ProjectViewProjectNode" />
@@ -621,7 +529,7 @@
       <workItem from="1524529187334" duration="7269000" />
       <workItem from="1524608442495" duration="572000" />
       <workItem from="1524609503605" duration="7357000" />
-      <workItem from="1524675282642" duration="2278000" />
+      <workItem from="1524675282642" duration="12002000" />
     </task>
     <task id="LOCAL-00001" summary="All but one test case is working for the extensible hash -- essentially there needs to be a way to deal with local indices that are associated with more than one global index, but that should not be too hard to figure out from this...">
       <created>1524444439378</created>
@@ -679,47 +587,53 @@
       <option name="project" value="LOCAL" />
       <updated>1524616307821</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Couple new things, disk ios and run time is actually reporting out correctly now -- needed to swap over to the heuristic query planner instead of the basic one. Good news: extensible has is consistently out-performing static hash and b-tree indexes, bad news: no idex is massively outperforming all of them, and I don't know why?? This is a bizarre issue, but I am assuming because it is outperforming the indices we didn't touch that this will be fine.">
+      <created>1524686774367</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1524686774367</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 20h 44m 46s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 16h 28m 11s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 20h 49m 58s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 16h 28m 32s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 20h 58m 18s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 16h 31m 59s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 01m 28s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 16h 42m 16s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 31m 00s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 16h 55m 43s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 47m 21s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 17h 14m 14s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 48m 23s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 17h 14m 30s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 48m 58s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 17h 17m 18s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.23 at 21h 49m 50s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 17h 49m 57s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.24 at 18h 51m 44s.xml">
+    <history-entry file="GlobalIndexTests_globalIndexTests - 2018.04.25 at 19h 16m 43s.xml">
       <configuration name="GlobalIndexTests.globalIndexTests" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="181535000" />
+    <option name="totallyTimeSpent" value="191259000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1723" height="976" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -734,7 +648,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3290398" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15700059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15700059" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33371958" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -764,7 +678,8 @@
     <MESSAGE value="upping the buffer # helps again! Keep it at 1000 for all purposes, this would be closer to real life anyway" />
     <MESSAGE value="Everything is in place for part 3, just need to do the write up..." />
     <MESSAGE value="ready to merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="ready to merge" />
+    <MESSAGE value="Couple new things, disk ios and run time is actually reporting out correctly now -- needed to swap over to the heuristic query planner instead of the basic one. Good news: extensible has is consistently out-performing static hash and b-tree indexes, bad news: no idex is massively outperforming all of them, and I don't know why?? This is a bizarre issue, but I am assuming because it is outperforming the indices we didn't touch that this will be fine." />
+    <option name="LAST_COMMIT_MESSAGE" value="Couple new things, disk ios and run time is actually reporting out correctly now -- needed to swap over to the heuristic query planner instead of the basic one. Good news: extensible has is consistently out-performing static hash and b-tree indexes, bad news: no idex is massively outperforming all of them, and I don't know why?? This is a bizarre issue, but I am assuming because it is outperforming the indices we didn't touch that this will be fine." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -773,13 +688,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/simpledb/record/TableInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/materialize/GroupByPlan.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="386">
@@ -836,13 +744,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/README.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/Design.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-72">
@@ -892,24 +793,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2635">
-          <caret line="167" column="4" lean-forward="false" selection-start-line="167" selection-start-column="4" selection-end-line="167" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../DataGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6018">
-          <caret line="365" column="34" lean-forward="false" selection-start-line="365" selection-start-column="34" selection-end-line="365" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -1102,16 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="18" column="8" lean-forward="false" selection-start-line="18" selection-start-column="8" selection-end-line="23" selection-end-column="20" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/parse/Lexer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1173">
@@ -1168,17 +1045,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/README.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/LocalIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="25" column="33" lean-forward="false" selection-start-line="25" selection-start-column="33" selection-end-line="25" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="369" column="112" lean-forward="true" selection-start-line="369" selection-start-column="112" selection-end-line="369" selection-end-column="112" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/server/SimpleDB.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="109" column="0" lean-forward="false" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="204">
+          <caret line="25" column="38" lean-forward="false" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/materialize/SortScan.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1764">
+          <caret line="14" column="13" lean-forward="false" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-835">
+          <caret line="81" column="8" lean-forward="false" selection-start-line="81" selection-start-column="8" selection-end-line="84" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simpledb/testing/CreateTestTables.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="317">
+        <state relative-caret-position="-499">
           <caret line="79" column="61" lean-forward="false" selection-start-line="79" selection-start-column="61" selection-end-line="79" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
