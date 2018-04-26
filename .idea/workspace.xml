@@ -6,9 +6,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" afterPath="$PROJECT_DIR$/bin/simpledb/server/SimpleDB.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/simpledb/testing/GlobalIndexTests.class" afterPath="$PROJECT_DIR$/bin/simpledb/testing/GlobalIndexTests.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" afterPath="$PROJECT_DIR$/src/simpledb/index/extensiblehash/GlobalIndex.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" afterPath="$PROJECT_DIR$/src/simpledb/server/SimpleDB.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" afterPath="$PROJECT_DIR$/src/simpledb/testing/GlobalIndexTests.java" />
     </list>
     <ignored path="$PROJECT_DIR$/bin/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -195,7 +192,7 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="867" />
     <option name="height" value="967" />
@@ -529,7 +526,7 @@
       <workItem from="1524529187334" duration="7269000" />
       <workItem from="1524608442495" duration="572000" />
       <workItem from="1524609503605" duration="7357000" />
-      <workItem from="1524675282642" duration="12002000" />
+      <workItem from="1524675282642" duration="12042000" />
     </task>
     <task id="LOCAL-00001" summary="All but one test case is working for the extensible hash -- essentially there needs to be a way to deal with local indices that are associated with more than one global index, but that should not be too hard to figure out from this...">
       <created>1524444439378</created>
@@ -594,7 +591,14 @@
       <option name="project" value="LOCAL" />
       <updated>1524686774367</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Cleaned things up further.">
+      <created>1524700957195</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1524700957195</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -630,10 +634,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="191259000" />
+    <option name="totallyTimeSpent" value="191299000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1723" height="976" extended-state="6" />
+    <frame x="-8" y="-8" width="1723" height="976" extended-state="7" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -679,7 +683,8 @@
     <MESSAGE value="Everything is in place for part 3, just need to do the write up..." />
     <MESSAGE value="ready to merge" />
     <MESSAGE value="Couple new things, disk ios and run time is actually reporting out correctly now -- needed to swap over to the heuristic query planner instead of the basic one. Good news: extensible has is consistently out-performing static hash and b-tree indexes, bad news: no idex is massively outperforming all of them, and I don't know why?? This is a bizarre issue, but I am assuming because it is outperforming the indices we didn't touch that this will be fine." />
-    <option name="LAST_COMMIT_MESSAGE" value="Couple new things, disk ios and run time is actually reporting out correctly now -- needed to swap over to the heuristic query planner instead of the basic one. Good news: extensible has is consistently out-performing static hash and b-tree indexes, bad news: no idex is massively outperforming all of them, and I don't know why?? This is a bizarre issue, but I am assuming because it is outperforming the indices we didn't touch that this will be fine." />
+    <MESSAGE value="Cleaned things up further." />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned things up further." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
