@@ -16,7 +16,7 @@ public class Startup {
       SimpleDB.init(args[0], args[1]);
       
       // create a registry specific for the server on the default port
-      Registry reg = LocateRegistry.createRegistry(1099);
+      Registry reg = LocateRegistry.createRegistry(8080);
       
       // and post the server entry in it
       RemoteDriver d = new RemoteDriverImpl();

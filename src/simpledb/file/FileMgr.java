@@ -25,6 +25,7 @@ public class FileMgr {
    private File dbDirectory;
    private boolean isNew;
    private Map<String,FileChannel> openFiles = new HashMap<String,FileChannel>();
+   private int diskIOS = 0;
 
    /**
     * Creates a file manager for the specified database.
@@ -76,6 +77,7 @@ public class FileMgr {
          bb.rewind();
          FileChannel fc = getFile(blk.fileName());
          fc.write(bb, blk.number() * BLOCK_SIZE);
+         diskIOS++;
       }
       catch (IOException e) {
          throw new RuntimeException("cannot write block" + blk);
@@ -138,5 +140,13 @@ public class FileMgr {
          openFiles.put(filename, fc);
       }
       return fc;
+   }
+
+   public int getDiskIOS(){
+      return this.diskIOS;
+   }
+
+   public void refreshDiskIOS() {
+      this.diskIOS = 0;
    }
 }
