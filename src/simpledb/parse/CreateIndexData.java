@@ -43,6 +43,7 @@ public class CreateIndexData {
 
    /**
     *
+    * @return the index type
     */
    public String idxType() { return idxtype; }
 }
